@@ -39,3 +39,13 @@ def test_linked_list_size():
     ll.push('two')
     ll.pop()
     assert ll.size() == 1
+
+
+def test_linked_list_search():
+    """Test linked list search method."""
+    from linked_list import LinkedList
+    ll = LinkedList()
+    ll.push('val')
+    ll.push('val2')
+    ll.push('val3')
+    assert ll.search('val3').data == 'val3'

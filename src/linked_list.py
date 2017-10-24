@@ -28,14 +28,22 @@ class LinkedList(object):
 
     def pop(self):
         """Remove and return the head item of linked list."""
+        if not self.head:
+            raise IndexError('Cannot pop from empty list.')
         pop_node = self.head
-        try:
-            self.head = pop_node.next
-            self.count -= 1
-            return pop_node.data
-        except AttributeError:
-            raise IndexError('pop from empty list')
+        self.head = pop_node.next
+        self.count -= 1
+        return pop_node.data
 
     def size(self):
         """Return size of linked list."""
         return self.count
+
+    def search(self, val):
+        """Return node containing value in list if present otherwise None."""
+        current_node = self.head
+        while current_node:
+            if current_node.data == val:
+                return current_node
+            current_node = current_node.next
+        return
