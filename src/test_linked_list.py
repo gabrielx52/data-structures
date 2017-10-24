@@ -19,3 +19,13 @@ def test_pop():
     ll = LinkedList()
     ll.push('val')
     assert ll.pop() == 'val'
+
+
+def test_linked_list_count():
+    """Test linked list object count."""
+    from linked_list import LinkedList
+    ll = LinkedList()
+    ll.push('one')
+    ll.push('two')
+    ll.push('three')
+    assert ll.count == 3
