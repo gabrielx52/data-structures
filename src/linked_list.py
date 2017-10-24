@@ -25,3 +25,13 @@ class LinkedList(object):
         new_node.next = self.head
         self.head = new_node
         self.count += 1
+
+    def pop(self):
+        """Remove and return the head item of linked list."""
+        pop_node = self.head
+        try:
+            self.head = pop_node.next
+            self.count -= 1
+            return pop_node.data
+        except AttributeError:
+            raise IndexError('pop from empty list')
