@@ -35,3 +35,7 @@ class LinkedList(object):
             return pop_node.data
         except AttributeError:
             raise IndexError('pop from empty list')
+
+    def size(self):
+        """Return size of linked list."""
+        return self.count

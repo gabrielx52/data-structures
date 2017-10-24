@@ -29,3 +29,13 @@ def test_linked_list_count():
     ll.push('two')
     ll.push('three')
     assert ll.count == 3
+
+
+def test_linked_list_size():
+    """Test linked list size method."""
+    from linked_list import LinkedList
+    ll = LinkedList()
+    ll.push('one')
+    ll.push('two')
+    ll.pop()
+    assert ll.size() == 1
