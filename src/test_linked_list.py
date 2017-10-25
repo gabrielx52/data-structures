@@ -28,7 +28,7 @@ def test_linked_list_count():
     ll.push('one')
     ll.push('two')
     ll.push('three')
-    assert ll.count == 3
+    assert ll._count == 3
 
 
 def test_linked_list_size():
@@ -49,3 +49,25 @@ def test_linked_list_search():
     ll.push('val2')
     ll.push('val3')
     assert ll.search('val3').data == 'val3'
+
+
+def test_len_function_linked_list():
+    """Test len function with linked list."""
+    from linked_list import LinkedList
+    ll = LinkedList()
+    ll.push('one')
+    ll.push('two')
+    ll.pop()
+    assert len(ll) == 1
+
+
+def test_linked_list_remove():
+    """Test remove method of linked list."""
+    from linked_list import LinkedList
+    ll = LinkedList()
+    ll.push('one')
+    ll.push('two')
+    ll.push('three')
+    node = ll.search('two')
+    ll.remove(node)
+    assert len(ll) == 2

@@ -16,7 +16,7 @@ class LinkedList(object):
     def __init__(self):
         """Make linked list object."""
         self.head = None
-        self.count = 0
+        self._count = 0
 
     def push(self, val):
         """Push a new node on head of linked list."""
@@ -24,7 +24,7 @@ class LinkedList(object):
         new_node.data = val
         new_node.next = self.head
         self.head = new_node
-        self.count += 1
+        self._count += 1
 
     def pop(self):
         """Remove and return the head item of linked list."""
@@ -32,12 +32,16 @@ class LinkedList(object):
             raise IndexError('Cannot pop from empty list.')
         pop_node = self.head
         self.head = pop_node.next
-        self.count -= 1
+        self._count -= 1
         return pop_node.data
 
     def size(self):
         """Return size of linked list."""
-        return self.count
+        return self._count
+
+    def __len__(self):
+        """Return length of linked list with len function."""
+        return self._count
 
     def search(self, val):
         """Return node containing value in list if present otherwise None."""
@@ -46,4 +50,21 @@ class LinkedList(object):
             if current_node.data == val:
                 return current_node
             current_node = current_node.next
+        return
+
+    def remove(self, node):
+        """Remove node from linked list."""
+        previous_node = None
+        current_node = self.head
+        while current_node:
+            if current_node == node:
+                if previous_node:
+                    previous_node.next = current_node.next
+                    current_node.next = None
+                    self._count -= 1
+                else:
+                    current_node.next = None
+                    self._count -= 1
+            previous_node = current_node
+            current_node = previous_node.next
         return
