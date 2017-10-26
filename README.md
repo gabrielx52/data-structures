@@ -7,7 +7,7 @@ Sample code for classic data structures
 
 ## Linked-List
 
-###Make a linked list:
+### Make a linked list:
 
 ```
 from linked_list import LinkedList
@@ -17,7 +17,7 @@ ll = LinkedList()
 
 Big O runtime: 0(1)
 
-###Push a value:
+### Push a value:
 
 ```
 ll.push('one')
@@ -25,7 +25,7 @@ ll.push('one')
 
 Big 0 runtime: 0(1)
 
-###Pop a value:
+### Pop a value:
 
 ```
 ll.pop()
