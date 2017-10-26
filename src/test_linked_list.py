@@ -71,3 +71,14 @@ def test_linked_list_remove():
     node = ll.search('two')
     ll.remove(node)
     assert len(ll) == 2
+
+
+def test_linked_list_display():
+    """Test display the linked list as if a tuple literal."""
+    from linked_list import LinkedList
+    ll = LinkedList()
+    ll.push('one')
+    ll.push('two')
+    ll.push('three')
+    assert ll.display() == "('one', 'two', 'three')"
+

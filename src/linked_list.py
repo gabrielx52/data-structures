@@ -68,3 +68,16 @@ class LinkedList(object):
             previous_node = current_node
             current_node = previous_node.next
         return
+
+    def display(self):
+        """Display the linked list value as if a tuple."""
+        display_string = ""
+        current_head = self.head
+        while current_head:
+            display_string = "'" + current_head.data + "', " + display_string
+            current_head = current_head.next
+        return "(" + display_string[:-2] + ")"
+
+    def __str__(self):
+        """Print the display."""
+        return self.display()
