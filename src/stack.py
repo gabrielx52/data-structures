@@ -12,3 +12,7 @@ class Stack(object):
     def push(self, val):
         """Push new item on stack."""
         self.ll.push(val)
+
+    def pop(self):
+        """Pop last-in item on stack."""
+        return self.ll.pop()
