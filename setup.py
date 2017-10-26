@@ -6,8 +6,8 @@ setup(
     description='A package for python data structures.',
     package_dir={'': 'src'},
     author=['Marco Zangari', 'Gabriel Meringolo'],
-    author_email=['', 'gabriel.meringolo@gmail.com'],
-    py_modules=[''],
+    author_email=['mjzangari@gmail.com', 'gabriel.meringolo@gmail.com'],
+    py_modules=['linked_list'],
     install_requires=[],
     extras_require={
         'testing': ['pytest', 'pytest-cov', 'pytest-watch', 'tox'],
