@@ -5,6 +5,43 @@
 ## Overview
 Sample code for classic data structures
 
+## Stack
+
+### Make a stack:
+
+```
+from stack import Stack
+
+stck = Stack()
+```
+
+Big 0 runtime: 0(1)
+
+### Push a value:
+
+```
+stck.push('one')
+```
+
+Big 0 runtime: 0(1)
+
+### Pop a value:
+
+```
+stck.pop()
+```
+
+Big 0 runtime: 0(1)
+
+### Get a length value:
+
+```
+len(stck)
+```
+
+Big 0 runtime: 0(1)
+
+
 ## Linked-List
 
 ### Make a linked list:

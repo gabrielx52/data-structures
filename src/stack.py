@@ -7,19 +7,19 @@ class Stack(object):
 
     def __init__(self, iterable=()):
         """Init new stack instance."""
-        self._ll = LinkedList(iterable)
+        self._stck = LinkedList(iterable)
 
     def push(self, val):
         """Push new item on stack."""
-        self._ll.push(val)
+        self._stck.push(val)
 
     def pop(self):
         """Pop last-in item on stack."""
         try:
-            return self._ll.pop()
+            return self._stck.pop()
         except IndexError:
             raise IndexError('Cannot pop from an empty stack.')
 
     def __len__(self):
         """Return size of stack with len() function."""
-        return len(self._ll)
+        return len(self._stck)
