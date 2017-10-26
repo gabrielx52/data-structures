@@ -82,3 +82,9 @@ def test_linked_list_display():
     ll.push('three')
     assert ll.display() == "('one', 'two', 'three')"
 
+
+def test_linked_list_iterable():
+    """Test LinkedList iterable loader."""
+    from linked_list import LinkedList
+    ll = LinkedList(['one', 'two', 'three'])
+    assert ll.head.data == 'three'

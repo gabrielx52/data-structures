@@ -13,10 +13,13 @@ class Node(object):
 class LinkedList(object):
     """Make linked list class."""
 
-    def __init__(self):
+    def __init__(self, iterable=()):
         """Make linked list object."""
         self.head = None
         self._count = 0
+        if isinstance(iterable, (str, tuple, list)):
+            for item in iterable:
+                self.push(item)
 
     def push(self, val):
         """Push a new node on head of linked list."""
