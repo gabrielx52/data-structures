@@ -34,7 +34,7 @@ ll.pop()
 
 Big 0 runtime: 0(1)
 
-###Size a value:
+### Size a value:
 
 ```
 ll.push('one')
@@ -44,7 +44,7 @@ len(ll)
 
 Big 0 runtime: 0(1)
 
-###Search a value:
+### Search a value:
 
 ```
 ll.search('one')
@@ -53,7 +53,7 @@ ll.search('one')
 
 Big 0 runtime: 0(n)
 
-###Remove a value:
+### Remove a value:
 
 ```
 node = ll.search('one')
@@ -62,7 +62,7 @@ ll.remove(node)
 
 Big 0 runtime: 0(n)
 
-###Display the linked list:
+### Display the linked list:
 
 ```
 ll.push('one')
