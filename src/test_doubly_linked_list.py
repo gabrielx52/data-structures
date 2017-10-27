@@ -42,3 +42,12 @@ def test_pop():
     dll.append('three')
     assert dll.pop() == 'one'
 
+def test_shift():
+    """Test the shift method on doubly linked list."""
+    from doubly_linked_list import DoublyLinkedList
+    dll = DoublyLinkedList()
+    dll.append('one')
+    dll.append('two')
+    dll.append('three')
+    assert dll.shift() == 'three'
+

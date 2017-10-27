@@ -58,7 +58,14 @@ class DoublyLinkedList(object):
         self._len -= 1
         return pop_node.data
 
-
+    def shift(self):
+        if not self.tail:
+            raise IndexError('Cannot shift from empty list')
+        shift_node = self.tail
+        self.tail = shift_node.prev
+        self.tail.next = None
+        self._len -= 1
+        return shift_node.data
 
 
 
