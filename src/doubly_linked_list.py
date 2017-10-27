@@ -59,6 +59,7 @@ class DoublyLinkedList(object):
         return pop_node.data
 
     def shift(self):
+        """Shift from the tail of doubly linked list."""
         if not self.tail:
             raise IndexError('Cannot shift from empty list')
         shift_node = self.tail
@@ -67,10 +68,28 @@ class DoublyLinkedList(object):
         self._len -= 1
         return shift_node.data
 
+    def __len__(self):
+        """Python len function will return length of dll."""
+        return self._len
 
-
-
-
-
-
-
+    def remove(self, val):
+        """Remove node from doubly linked list."""
+        previous_node = None
+        current_node = self.head
+        while current_node:
+            if current_node.data == val:
+                if previous_node:
+                    previous_node.next = current_node.next
+                    current_node.next.prev = current_node.prev
+                    current_node.next = None
+                    current_node.prev = None
+                    self._len -= 1
+                    return
+                else:
+                    current_node.next = None
+                    current_node.next.prev = None
+                    self._len -= 1
+                    return
+            previous_node = current_node
+            current_node = previous_node.next
+        raise ValueError("{} not in list".format(val))
