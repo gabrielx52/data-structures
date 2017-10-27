@@ -92,4 +92,4 @@ class DoublyLinkedList(object):
                     return
             previous_node = current_node
             current_node = previous_node.next
-        raise ValueError("{} not in list".format(val))
+        raise ValueError("{} not in list".format(str(val)))
