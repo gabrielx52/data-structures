@@ -31,3 +31,14 @@ def test_dll_append():
     dll.append('two')
     dll.append('three')
     assert dll._len == 3
+
+
+def test_pop():
+    """Test the pop method on doubly linked list."""
+    from doubly_linked_list import DoublyLinkedList
+    dll = DoublyLinkedList()
+    dll.append('one')
+    dll.append('two')
+    dll.append('three')
+    assert dll.pop() == 'one'
+

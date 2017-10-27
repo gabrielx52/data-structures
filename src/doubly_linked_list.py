@@ -47,3 +47,23 @@ class DoublyLinkedList(object):
             new_node.prev = self.tail
             self.tail = new_node
             self._len += 1
+
+    def pop(self):
+        """Pop from the head of doubly linked list."""
+        if not self.head:
+            raise IndexError('Cannot pop from empty list')
+        pop_node = self.head
+        self.head = pop_node.next
+        self.head.prev = None
+        self._len -= 1
+        return pop_node.data
+
+
+
+
+
+
+
+
+
+
