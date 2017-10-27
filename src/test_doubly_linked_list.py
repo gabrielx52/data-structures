@@ -1,4 +1,5 @@
 """Test module for doubly linked list."""
+import pytest
 
 
 def test_node_object():
@@ -64,7 +65,7 @@ def test_len_dll():
 
 
 def test_dll_remove():
-    """Test len function on doubly linked list."""
+    """Test remove method on doubly linked list."""
     from doubly_linked_list import DoublyLinkedList
     dll = DoublyLinkedList()
     dll.append('one')
@@ -72,3 +73,14 @@ def test_dll_remove():
     dll.append('three')
     dll.remove('two')
     assert len(dll) == 2
+
+
+def test_dll_remove_value_error():
+    """Test dll remove method error handling ."""
+    from doubly_linked_list import DoublyLinkedList
+    dll = DoublyLinkedList()
+    dll.append('one')
+    dll.append('two')
+    dll.append('three')
+    with pytest.raises(ValueError):
+        dll.remove('to')
