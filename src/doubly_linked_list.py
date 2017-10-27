@@ -86,8 +86,8 @@ class DoublyLinkedList(object):
                     self._len -= 1
                     return
                 else:
-                    current_node.next = None
                     current_node.next.prev = None
+                    current_node.next = None
                     self._len -= 1
                     return
             previous_node = current_node

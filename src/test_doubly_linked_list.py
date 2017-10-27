@@ -84,3 +84,25 @@ def test_dll_remove_value_error():
     dll.append('three')
     with pytest.raises(ValueError):
         dll.remove('to')
+
+
+def test_int_push_and_remove():
+    """Test doubly linked list push and remove with ints."""
+    from doubly_linked_list import DoublyLinkedList
+    dll = DoublyLinkedList()
+    dll.push(1)
+    dll.push(2)
+    dll.push(3)
+    dll.remove(2)
+    assert len(dll) == 2
+
+
+def test_remove_first_instance():
+    """Test remove method with multiple nodes with same value."""
+    from doubly_linked_list import DoublyLinkedList
+    dll = DoublyLinkedList()
+    dll.push(1)
+    dll.push(2)
+    dll.push(2)
+    dll.remove(2)
+    assert len(dll) == 2
