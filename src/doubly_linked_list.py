@@ -16,3 +16,6 @@ class DoublyLinkedList(object):
 
     def __init__(self):
         """Doubly linked list class object."""
+        self.head = None
+        self.tail = None
+        self._len = 0
