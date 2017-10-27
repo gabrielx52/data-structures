@@ -5,6 +5,59 @@
 ## Overview
 Sample code for classic data structures
 
+## Doubly Linked List
+
+### Make a Doubly Linked List
+
+```
+from doubly_linked_list import DoublyLinKedList
+
+dll = DoublyLinkedList()
+```
+
+Big 0 runtime = O(1)
+
+### Push a Value:
+
+```
+dll.push('one')
+```
+
+Big 0 runtime = O(1)
+
+### Append a Value:
+
+```
+dll.append('one')
+```
+
+Big 0 runtime = O(1)
+
+### Pop a Value:
+
+```
+ll.pop()
+```
+
+Big 0 runtime = O(1)
+
+### Shift a Value:
+
+```
+ll.shift()
+```
+
+Big 0 runtime = O(1)
+
+### Remove a Value:
+
+```
+ll.remove('one')
+```
+
+Big 0 runtime = O(n)
+
+
 ## Stack
 
 ### Make a stack:
