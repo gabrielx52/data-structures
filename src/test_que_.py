@@ -14,4 +14,4 @@ def test_dequeue_method():
     q = Queue()
     q.enqueue('one')
     q.enqueue('two')
-    assert q.dequeue == 'one'
+    assert q.dequeue() == 'one'

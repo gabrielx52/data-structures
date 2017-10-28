@@ -16,4 +16,7 @@ class Queue(object):
 
     def dequeue(self):
         """Remove from end of list in sequence."""
-        self._queue.shift()
+        try:
+            return self._queue.shift()
+        except IndexError:
+            raise IndexError('Cannot dequeue from an empty queue')
