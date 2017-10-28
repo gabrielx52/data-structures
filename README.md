@@ -5,6 +5,59 @@
 ## Overview
 Sample code for classic data structures
 
+## Queue
+
+#### Make a Queue
+
+```
+from que_ import Queue
+
+q = Queue()
+```
+
+Big 0 runtime: 0(1)
+
+### Add a value to a Queue
+
+```
+q.enqueue('one')
+```
+
+Big 0 runtime: 0(1)
+
+### Remove a value from Queue
+
+```
+q.dequeue()
+```
+
+Big 0 runtime: 0(1)
+
+### Peek
+
+```
+q.peek()
+```
+
+Big 0 runtime: 0(1)
+
+### Size
+
+```
+q.size()
+```
+
+Big 0 runtime: 0(1)
+
+### Len
+
+```
+len(q)
+```
+
+Big 0 runtime: 0(1)
+
+
 ## Doubly Linked List
 
 ### Make a Doubly Linked List
