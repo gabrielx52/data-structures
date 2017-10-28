@@ -5,7 +5,7 @@ from linked_list import LinkedList
 class Stack(object):
     """Stack object class."""
 
-    def __init__(self, iterable=()):
+    def __init__(self, iterable=None):
         """Init new stack instance."""
         self._stck = LinkedList(iterable)
 
