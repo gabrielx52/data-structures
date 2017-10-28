@@ -98,13 +98,11 @@ class DoublyLinkedList(object):
                 if previous_node:
                     previous_node.next_n = current_node.next_n
                     current_node.next_n.prev = current_node.prev
-                    current_node.next_n = None
-                    current_node.prev = None
+                    current_node.next_n = current_node.prev = None
                     self._len -= 1
                     return
                 else:
-                    current_node.next_n = None
-                    current_node.next_n.prev = None
+                    current_node.next_n.prev = current_node.next_n = None
                     self._len -= 1
                     return
             previous_node = current_node
