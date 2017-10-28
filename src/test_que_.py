@@ -1,4 +1,5 @@
 """Test the que_.py."""
+import pytest
 
 
 def test_enqueue_method():
@@ -15,6 +16,14 @@ def test_dequeue_method():
     q.enqueue('one')
     q.enqueue('two')
     assert q.dequeue() == 'one'
+
+
+def test_dequeue_raise_index_error():
+    """Raise an indext error when list empty."""
+    from que_ import Queue
+    q = Queue()
+    with pytest.raises(IndexError):
+        q.dequeue()
 
 
 def test_queue_peek_with_data():
