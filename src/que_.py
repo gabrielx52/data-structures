@@ -20,3 +20,18 @@ class Queue(object):
             return self._queue.shift()
         except IndexError:
             raise IndexError('Cannot dequeue from an empty queue')
+
+    def peek(self):
+        """Return value at tail of queue."""
+        try:
+            return self._queue.tail.data
+        except AttributeError:
+            return None
+
+    def size(self):
+        """Return the size of the queue."""
+        return self._queue._len
+
+    def __len__(self):
+        """Return size of queue with len."""
+        return len(self._queue)
