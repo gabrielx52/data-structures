@@ -38,3 +38,11 @@ def test_popleft():
     dq = Deque()
     dq.append('one')
     assert dq.popleft() == 'one'
+
+
+def test_peek():
+    """Test to see value of last, tail, object with peek()."""
+    from deque import Deque
+    dq = Deque()
+    dq.append('one')
+    assert dq.peek('one') == 'one'
