@@ -11,9 +11,16 @@ class Deque(object):
         self._deque = DoublyLinkedList()
 
     def append(self, val):
-        """Add item to end of deque."""
+        """Add item to right end of deque."""
         self._deque.append(val)
 
     def appendleft(self, val):
         """Add item to left end of deque."""
         self._deque.push(val)
+
+    def pop(self):
+        """Remove item from right end of deque."""
+        try:
+            return self._deque.shift()
+        except IndexError:
+            raise IndexError('Cannot pop from empty deque.')
