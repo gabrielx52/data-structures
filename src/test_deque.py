@@ -55,3 +55,13 @@ def test_peekleft():
     dq.append('one')
     dq.append('two')
     assert dq.peekleft() == 'one'
+
+
+def test_dq_size():
+    """Test size method of deque."""
+    from deque import Deque
+    dq = Deque()
+    dq.append(1)
+    dq.appendleft(0)
+    dq.append(17)
+    assert dq.size() == 3
