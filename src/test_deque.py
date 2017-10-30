@@ -29,4 +29,4 @@ def test_pop():
     from deque import Deque
     dq = Deque()
     dq.append('one')
-    assert dq.pop('one') == 'one'
+    assert dq.pop() == 'one'
