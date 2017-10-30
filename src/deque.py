@@ -45,3 +45,11 @@ class Deque(object):
             return self._deque.head.data
         except AttributeError:
             return None
+
+    def size(self):
+        """Return the size of the deque."""
+        return self._deque._len
+
+    def __len__(self):
+        """Return the size of the deque with len."""
+        return len(self._queue)
