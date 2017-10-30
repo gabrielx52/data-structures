@@ -53,6 +53,13 @@ dq.peekleft()
 
 Big 0 runtime: 0(1)
 
+### Size
+```
+dq.size()
+```
+
+Big 0 runtime: 0(1)
+
 
 ## Queue
 
