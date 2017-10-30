@@ -12,4 +12,13 @@ def test_append():
     """Test adding to end (append) on deque object."""
     from deque import Deque
     dq = Deque()
-    assert dq.append('one') == 'one'
+    dq.append('one')
+    assert dq._deque.head.data == 'one'
+
+
+def test_appendleft():
+    """Test adding to front (appendleft) on deque object."""
+    from deque import Deque
+    dq = Deque()
+    dq.appendleft('one')
+    assert dq._deque.head.data == 'one'
