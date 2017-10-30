@@ -33,9 +33,15 @@ class Deque(object):
             raise IndexError('Cannot pop from empty deque')
 
     def peek(self):
-        """Show data of item at front of deque."""
+        """Show data of item at back of deque."""
         try:
             return self._deque.tail.data
         except AttributeError:
             return None
 
+    def peekleft(self):
+        """Show data of item at front of deque."""
+        try:
+            return self._deque.head.data
+        except AttributeError:
+            return None
