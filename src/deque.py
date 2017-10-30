@@ -16,4 +16,4 @@ class Deque(object):
 
     def appendleft(self, val):
         """Add item to left end of deque."""
-        self._deque.append(val)
+        self._deque.push(val)
