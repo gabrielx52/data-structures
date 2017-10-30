@@ -24,3 +24,10 @@ class Deque(object):
             return self._deque.shift()
         except IndexError:
             raise IndexError('Cannot pop from empty deque.')
+
+    def popleft(self):
+        """Remove item from head, left-side, of deque."""
+        try:
+            return self._deque.pop()
+        except IndexError:
+            raise IndexError('Cannot pop from empty deque')
