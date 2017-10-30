@@ -46,3 +46,12 @@ def test_peek():
     dq = Deque()
     dq.append('one')
     assert dq.peek() == 'one'
+
+
+def test_peekleft():
+    """Test to see value of first, head, object with peekleft()."""
+    from deque import Deque
+    dq = Deque()
+    dq.append('one')
+    dq.append('two')
+    assert dq.peekleft() == 'one'
