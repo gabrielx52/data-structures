@@ -5,6 +5,55 @@
 ## Overview
 Sample code for classic data structures
 
+## Deque
+
+### Make a Deque
+```
+from deque import Deque
+dq = Deque()
+```
+
+### Append a Value
+```
+dq.append('one')
+```
+
+Big 0 runtime: 0(1)
+
+### Appendleft a Value
+```
+dq.append('one')
+```
+
+Big 0 runtime: 0(1)
+
+### Pop a Value
+```
+dq.pop()
+```
+
+Big 0 runtime: 0(1)
+
+### Popleft a Value
+```
+dq.popleft()
+```
+
+Big 0 runtime: 0(1)
+
+### Peek a Value
+```
+dq.peek()
+```
+
+### Peekleft a Value
+```
+dq.peekleft()
+```
+
+Big 0 runtime: 0(1)
+
+
 ## Queue
 
 #### Make a Queue
