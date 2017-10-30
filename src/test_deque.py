@@ -45,4 +45,4 @@ def test_peek():
     from deque import Deque
     dq = Deque()
     dq.append('one')
-    assert dq.peek('one') == 'one'
+    assert dq.peek() == 'one'
