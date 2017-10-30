@@ -25,8 +25,8 @@ def test_appendleft():
 
 
 def test_pop():
-     """Test adding to front (appendleft) on deque object."""
+     """Test adding to tail (appendleft) on deque object."""
     from deque import Deque
     dq = Deque()
     dq.append('one')
-    assert dq.pop('one') = 'one'
+    assert dq.pop('one') == 'one'
