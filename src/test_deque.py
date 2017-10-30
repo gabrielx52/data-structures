@@ -25,8 +25,16 @@ def test_appendleft():
 
 
 def test_pop():
-     """Test adding to tail (appendleft) on deque object."""
+    """Test remove object from front of deque with pop()."""
     from deque import Deque
     dq = Deque()
     dq.append('one')
     assert dq.pop() == 'one'
+
+
+def test_popleft():
+    """Test remove object from end of deque with popleft()."""
+    from deque import Deque
+    dq = Deque()
+    dq.append('one')
+    assert dq.popleft() == 'one'
