@@ -1,4 +1,5 @@
 """Test script for deque module."""
+import pytest
 
 
 def test_deque_object_type():
@@ -65,3 +66,43 @@ def test_dq_size():
     dq.appendleft(0)
     dq.append(17)
     assert dq.size() == 3
+
+
+def test_pop_empty_deque():
+    """Test pop from empty deque raises IndexError."""
+    from deque import Deque
+    dq = Deque()
+    with pytest.raises(IndexError):
+        dq.pop()
+
+
+def test_popleft_empty_deque():
+    """Test popleft from empty deque raises IndexError."""
+    from deque import Deque
+    dq = Deque()
+    with pytest.raises(IndexError):
+        dq.popleft()
+
+
+def test_peek_empty_deque():
+    """Test peek from empty deque returns None."""
+    from deque import Deque
+    dq = Deque()
+    assert dq.peek() is None
+
+
+def test_peekleft_empty_deque():
+    """Test peekleft from empty deque returns None."""
+    from deque import Deque
+    dq = Deque()
+    assert dq.peekleft() is None
+
+
+def test_len_function_on_deque():
+    """Test len function returns lenght of deque."""
+    from deque import Deque
+    dq = Deque()
+    dq.append(1)
+    dq.appendleft(0)
+    dq.append(17)
+    assert len(dq) == 3

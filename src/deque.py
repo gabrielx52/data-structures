@@ -52,4 +52,4 @@ class Deque(object):
 
     def __len__(self):
         """Return the size of the deque with len."""
-        return len(self._queue)
+        return len(self._deque)
