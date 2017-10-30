@@ -13,3 +13,7 @@ class Deque(object):
     def append(self, val):
         """Add item to end of deque."""
         self._deque.append(val)
+
+    def appendleft(self, val):
+        """Add item to left end of deque."""
+        self._deque.append(val)
