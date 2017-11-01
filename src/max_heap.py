@@ -46,6 +46,6 @@ class MaxHeap(object):
     def pop(self):
         """Pop the top value and resort the heap according to precedence."""
         try:
-            return self._heap(0)
+            return self._heap.pop(0)
         except IndexError:
             raise IndexError('Cannot pop from an empty list')
