@@ -6,4 +6,8 @@ class MaxHeap(object):
 
     def __init__(self):
         """Max heap init."""
-        _heap = []
+        self._heap = []
+
+    def push(self, val):
+        """Add data to heap."""
+        self._heap.append(val)
