@@ -45,3 +45,17 @@ def test_right_child():
     from max_heap import MaxHeap
     mh = MaxHeap()
     assert mh.right_child(7) == 16
+
+
+def test_sort_with_lots_of_pushes():
+    """Test sort with lots of data."""
+    from max_heap import MaxHeap
+    mh = MaxHeap()
+    mh.push(1)
+    mh.push(8)
+    mh.push(11)
+    mh.push(99)
+    mh.push(37)
+    mh.push(7)
+    mh.push(-1)
+    assert mh._heap == [99, 37, 8, 1, 11, 7, -1]
