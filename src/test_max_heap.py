@@ -62,7 +62,7 @@ def test_sort_with_lots_of_pushes():
 
 
 def test_pop_method():
-    """Test pop method ."""
+    """Test pop method."""
     from max_heap import MaxHeap
     mh = MaxHeap()
     mh.push(1)
@@ -72,3 +72,16 @@ def test_pop_method():
     mh.push(37)
     mh.push(7)
     assert mh.pop() == 99
+
+def test_sort_after_pop():
+    """Test sort method after a value has been popped."""
+    from max_heap import MaxHeap
+    mh = MaxHeap()
+    mh.push(1)
+    mh.push(8)
+    mh.push(11)
+    mh.push(99)
+    mh.push(37)
+    mh.push(7)
+    mh.pop()
+    assert mh._heap == [37, 11, 8, 7, 1]
