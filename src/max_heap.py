@@ -22,11 +22,11 @@ class MaxHeap(object):
 
     def left_child(self, i):
         """Return index of left child node."""
-        return 2 * i + 1
+        return (2 * i) + 1
 
     def right_child(self, i):
         """Return index of right child node."""
-        return 2 * i + 1
+        return (2 * i) + 2
 
     def sort(self, i, val):
         """Sort the heap."""

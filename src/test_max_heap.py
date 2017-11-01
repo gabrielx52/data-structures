@@ -31,3 +31,17 @@ def test_parent_for_item_in_heap():
     from max_heap import MaxHeap
     mh = MaxHeap()
     assert mh.parent(9) == 4
+
+
+def test_left_child():
+    """Test the left child method returns correct left child index."""
+    from max_heap import MaxHeap
+    mh = MaxHeap()
+    assert mh.left_child(3) == 7
+
+
+def test_right_child():
+    """Test the right child method returns correct right child index."""
+    from max_heap import MaxHeap
+    mh = MaxHeap()
+    assert mh.right_child(7) == 16
