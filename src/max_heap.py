@@ -14,11 +14,14 @@ class MaxHeap(object):
 
     def push(self, val):
         """Add data to heap."""
-        if not self._heap:
-            self._heap.append(val)
+        if type(val) == int:
+            if not self._heap:
+                self._heap.append(val)
+            else:
+                self._heap.append(val)
+                self._sort(len(self._heap) - 1)
         else:
-            self._heap.append(val)
-            self._sort(len(self._heap) - 1)
+            raise TypeError('Must add an integer')
 
     def parent(self, i):
         """Return index of parent node."""

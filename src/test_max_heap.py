@@ -36,6 +36,12 @@ def test_max_heap_push(full_heap):
     assert len(full_heap) == 7
 
 
+def test_max_heap_push_not_take_float(empty_heap):
+    """Test max heap push: raises error for value with float."""
+    with pytest.raises(TypeError):
+        empty_heap.push(1.00)
+
+
 def test_max_heap_binary_structure(full_heap):
     """Test max heap push: add data node to the list."""
     assert full_heap._heap == [99, 37, 8, 1, 11, 7, -1]
