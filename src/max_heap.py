@@ -4,9 +4,12 @@
 class MaxHeap(object):
     """Binary max heap data structure."""
 
-    def __init__(self):
+    def __init__(self, iterable=None):
         """Max heap init."""
         self._heap = []
+        if isinstance(iterable, (tuple, list)):
+            for item in iterable:
+                self.push(item)
 
     def __len__(self):
         """Return the length of the heap."""

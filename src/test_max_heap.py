@@ -25,10 +25,17 @@ def full_heap():
     return mh
 
 
+def test_constructor_accepts_iterable(empty_heap):
+    """Test constructor accepts tuples or lists."""
+    from max_heap import MaxHeap
+    assert isinstance(empty_heap, MaxHeap)
+
+
 def test_max_heap(empty_heap):
     """Test instance of MaxHeap."""
     from max_heap import MaxHeap
-    assert isinstance(empty_heap, MaxHeap)
+    mh = MaxHeap((1, 8, 11, 99, 37, 7, -1))
+    assert mh._heap == [99, 37, 8, 1, 11, 7, -1]
 
 
 def test_max_heap_push(full_heap):
