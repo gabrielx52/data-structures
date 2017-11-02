@@ -13,10 +13,21 @@ from max_heap import MaxHeap
 mh = MaxHeap()
 ```
 
+Big 0 runtime: 0(1)
+
 ### Push a Max Heap
 ```
 mh.push(1)
 ```
+
+Big 0 runtime: 0(log n)
+
+#### Pop a Max Heap
+```
+mh.pop()
+```
+
+Big 0 runtime: 0(log n)
 
 
 ## Deque
