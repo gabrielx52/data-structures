@@ -42,6 +42,18 @@ def test_max_heap_push_not_take_float(empty_heap):
         empty_heap.push(1.00)
 
 
+def test_value_error_for_non_unique_push(full_heap):
+    """Test ValueError raises if push a duplicate value."""
+    with pytest.raises(ValueError):
+        full_heap.push(99)
+
+
+def test_max_heap_push_not_take_str(empty_heap):
+    """Test max heap push: raises error for string push."""
+    with pytest.raises(TypeError):
+        empty_heap.push('hello')
+
+
 def test_max_heap_binary_structure(full_heap):
     """Test max heap push: add data node to the list."""
     assert full_heap._heap == [99, 37, 8, 1, 11, 7, -1]
