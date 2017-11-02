@@ -15,6 +15,8 @@ class MaxHeap(object):
     def push(self, val):
         """Add data to heap."""
         if type(val) == int:
+            if val in self._heap:
+                raise ValueError('Cannot have duplicate values in list')
             if not self._heap:
                 self._heap.append(val)
             else:
