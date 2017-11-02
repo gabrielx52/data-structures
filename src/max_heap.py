@@ -8,36 +8,33 @@ class MaxHeap(object):
         """Max heap init."""
         self._heap = []
 
+    def __len__(self):
+        """Return the length of the heap."""
+        return len(self._heap)
+
     def push(self, val):
         """Add data to heap."""
         if not self._heap:
             self._heap.append(val)
         else:
             self._heap.append(val)
-            self.sort(len(self._heap) - 1, val)
+            self._sort(len(self._heap) - 1)
 
     def parent(self, i):
         """Return index of parent node."""
         return (i - 1) // 2
 
-    def left_child(self, i):
-        """Return index of left child node."""
-        return (2 * i) + 1
-
-    def right_child(self, i):
-        """Return index of right child node."""
-        return (2 * i) + 2
-
-    def sort(self, i, val):
+    def _sort(self, i):
         """Sort the heap."""
         n_idx = i
         p_idx = self.parent(i)
         if self._heap[n_idx] > self._heap[p_idx]:
+            tmp = self._heap[i]
             self._heap[n_idx] = self._heap[p_idx]
             self._heap[n_idx] = self._heap[p_idx]
-            self._heap[p_idx] = val
+            self._heap[p_idx] = tmp
             if p_idx:
-                self.sort(p_idx, val)
+                self._sort(p_idx)
             else:
                 return
         else:
@@ -46,6 +43,29 @@ class MaxHeap(object):
     def pop(self):
         """Pop the top value and resort the heap according to precedence."""
         try:
-            return self._heap.pop(0)
+            top_node = self._heap[0]
+            self._heap = [self._heap[-1]] + self._heap[1:-1]
+            self.sort_down(0)
+            return top_node
         except IndexError:
-            raise IndexError('Cannot pop from an empty list')
+            raise IndexError('Cannot pop from an empty heap')
+
+    def sort_down(self, i):
+        """Sort after a pop."""
+        while ((i + 1) * 2) <= len(self._heap) + 1:
+            mc = self.max_child(i)
+            if self._heap[i] < self._heap[mc]:
+                tmp = self._heap[i]
+                self._heap[i] = self._heap[mc]
+                self._heap[mc] = tmp
+            i = mc
+
+    def max_child(self, i):
+        """Return the max child."""
+        if (i * 2) + 2 > len(self._heap):
+            return (i * 2) + 1
+        else:
+            if self._heap[(i * 2) + 1] > self._heap[(i * 2) + 2]:
+                return (i * 2) + 1
+            else:
+                return (i * 2) + 2

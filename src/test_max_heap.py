@@ -1,54 +1,18 @@
 """Implement max heap abstract structure tests."""
+import pytest
 
 
-def test_max_heap():
-    """Test instance of MaxHeap."""
+@pytest.fixture
+def empty_heap():
+    """Set up empty heap fixture."""
     from max_heap import MaxHeap
     mh = MaxHeap()
-    assert isinstance(mh, MaxHeap)
+    return mh
 
 
-def test_max_heap_push():
-    """Test max heap push: add data node to the list."""
-    from max_heap import MaxHeap
-    mh = MaxHeap()
-    mh.push(1)
-    assert len(mh._heap) == 1
-
-
-def test_max_heap_binary_structure():
-    """Test max heap push: add data node to the list."""
-    from max_heap import MaxHeap
-    mh = MaxHeap()
-    mh.push(1)
-    mh.push(8)
-    mh.push(11)
-    assert mh._heap == [11, 1, 8]
-
-
-def test_parent_for_item_in_heap():
-    """Test the parent method returns correct parent index."""
-    from max_heap import MaxHeap
-    mh = MaxHeap()
-    assert mh.parent(9) == 4
-
-
-def test_left_child():
-    """Test the left child method returns correct left child index."""
-    from max_heap import MaxHeap
-    mh = MaxHeap()
-    assert mh.left_child(3) == 7
-
-
-def test_right_child():
-    """Test the right child method returns correct right child index."""
-    from max_heap import MaxHeap
-    mh = MaxHeap()
-    assert mh.right_child(7) == 16
-
-
-def test_sort_with_lots_of_pushes():
-    """Test sort with lots of data."""
+@pytest.fixture
+def full_heap():
+    """Set up heap with data."""
     from max_heap import MaxHeap
     mh = MaxHeap()
     mh.push(1)
@@ -58,30 +22,44 @@ def test_sort_with_lots_of_pushes():
     mh.push(37)
     mh.push(7)
     mh.push(-1)
-    assert mh._heap == [99, 37, 8, 1, 11, 7, -1]
+    return mh
 
 
-def test_pop_method():
+def test_max_heap(empty_heap):
+    """Test instance of MaxHeap."""
+    from max_heap import MaxHeap
+    assert isinstance(empty_heap, MaxHeap)
+
+
+def test_max_heap_push(full_heap):
+    """Test max heap push: add data node to the list."""
+    assert len(full_heap) == 7
+
+
+def test_max_heap_binary_structure(full_heap):
+    """Test max heap push: add data node to the list."""
+    assert full_heap._heap == [99, 37, 8, 1, 11, 7, -1]
+
+
+def test_parent_for_item_in_heap():
+    """Test the parent method returns correct parent index."""
+    from max_heap import MaxHeap
+    mh = MaxHeap()
+    assert mh.parent(9) == 4
+
+
+def test_pop_method(full_heap):
     """Test pop method."""
-    from max_heap import MaxHeap
-    mh = MaxHeap()
-    mh.push(1)
-    mh.push(8)
-    mh.push(11)
-    mh.push(99)
-    mh.push(37)
-    mh.push(7)
-    assert mh.pop() == 99
+    assert full_heap.pop() == 99
 
-def test_sort_after_pop():
+
+def test_sort_after_pop(full_heap):
     """Test sort method after a value has been popped."""
-    from max_heap import MaxHeap
-    mh = MaxHeap()
-    mh.push(1)
-    mh.push(8)
-    mh.push(11)
-    mh.push(99)
-    mh.push(37)
-    mh.push(7)
-    mh.pop()
-    assert mh._heap == [37, 11, 8, 7, 1]
+    full_heap.pop()
+    assert full_heap._heap == [37, 11, 8, 1, -1, 7]
+
+
+def test_pop_empty_heap_raises_error(empty_heap):
+    """Test pop on an empty heap raises IndexError."""
+    with pytest.raises(IndexError):
+        empty_heap.pop()
