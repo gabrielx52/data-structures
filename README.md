@@ -5,6 +5,31 @@
 ## Overview
 Sample code for classic data structures
 
+## Max Heap
+
+### Make a Max Heap
+```
+from max_heap import MaxHeap
+mh = MaxHeap()
+```
+
+Big 0 runtime: 0(1)
+
+### Push a Max Heap
+```
+mh.push(1)
+```
+
+Big 0 runtime: 0(log n)
+
+#### Pop a Max Heap
+```
+mh.pop()
+```
+
+Big 0 runtime: 0(log n)
+
+
 ## Deque
 
 ### Make a Deque
@@ -12,6 +37,8 @@ Sample code for classic data structures
 from deque import Deque
 dq = Deque()
 ```
+
+Big 0 runtime: 0(1)
 
 ### Append a Value
 ```
