@@ -23,3 +23,14 @@ def test_insert_error_handling_non_int():
     pq = Priorityq()
     with pytest.raises(TypeError):
         pq.insert(8, 'one')
+
+
+def test_peek_method_shows_highest_priority():
+    """Peek method returns highest priority item in queue."""
+    from priority import Priorityq
+    pq = Priorityq()
+    pq.insert(1)
+    pq.insert(4)
+    pq.insert(2, 2)
+    pq.insert(3)
+    assert pq.peek() == 2
