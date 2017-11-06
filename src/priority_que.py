@@ -10,6 +10,8 @@ class Priorityq(object):
 
     def insert(self, val, weight=0):
         """Insert value into priority queue."""
+        if type(weight) != int:
+            raise TypeError('Weight must be int type')
         try:
             self._q[weight].append(val)
         except:

@@ -1,6 +1,7 @@
 """Test for test_priority que."""
 import pytest
 
+
 def test_priority_que():
     """Test priority_que produces an instance of Priorityq."""
     from priority_que import Priorityq
