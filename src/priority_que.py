@@ -21,6 +21,7 @@ class Priorityq(object):
         """See the highest priority key and its first in value."""
         if self._q:
             return self._q[max(self._q.keys())][0]
+        raise IndexError('Cannot peek an empty queue')
 
     def pop(self):
         """Remove and return highest priority item."""
