@@ -19,6 +19,8 @@ class Priorityq(object):
 
     def peek(self):
         """."""
+        if self._q:
+            return self._q[max(self._q.keys())][0]
 
     def pop(self):
         """."""
