@@ -18,7 +18,7 @@ class Priorityq(object):
             self._q[weight] = [val]
 
     def peek(self):
-        """."""
+        """See the highest priority key and its first in value."""
         if self._q:
             return self._q[max(self._q.keys())][0]
 

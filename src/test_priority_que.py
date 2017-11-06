@@ -27,10 +27,21 @@ def test_insert_error_handling_non_int():
 
 def test_peek_method_shows_highest_priority():
     """Peek method returns highest priority item in queue."""
-    from priority import Priorityq
+    from priority_que import Priorityq
     pq = Priorityq()
     pq.insert(1)
     pq.insert(4)
     pq.insert(2, 2)
     pq.insert(3)
     assert pq.peek() == 2
+
+
+def test_pop_method_shows_most_important_value():
+    """Test the pop method returns highest priority value."""
+    from priority_que import Priorityq
+    pq = Priorityq()
+    pq.insert(1)
+    pq.insert(4)
+    pq.insert(2, 2)
+    pq.insert(3)
+    assert pq.pop() == 2
