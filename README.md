@@ -5,6 +5,38 @@
 ## Overview
 Sample code for classic data structures
 
+## Priority Que
+
+### Make a Priority Que
+```
+from priority_que import Priorityq
+pq = Priorityq()
+```
+
+Big O runtime: O(1)
+
+### Insert a Value
+```
+pq.insert(2,3)
+```
+
+Big O runtime: O(1)
+
+## Peek a Value
+```
+pq.peek()
+```
+
+Big O runtime: O(n)
+
+### Pop a Value
+```
+pq.pop()
+```
+
+Big O runtime: O(n)
+
+
 ## Max Heap
 
 ### Make a Max Heap
@@ -13,21 +45,21 @@ from max_heap import MaxHeap
 mh = MaxHeap()
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Push a Max Heap
 ```
 mh.push(1)
 ```
 
-Big 0 runtime: 0(log n)
+Big O runtime: O(log n)
 
 #### Pop a Max Heap
 ```
 mh.pop()
 ```
 
-Big 0 runtime: 0(log n)
+Big O runtime: O(log n)
 
 
 ## Deque
@@ -38,35 +70,35 @@ from deque import Deque
 dq = Deque()
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Append a Value
 ```
 dq.append('one')
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Appendleft a Value
 ```
 dq.append('one')
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Pop a Value
 ```
 dq.pop()
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Popleft a Value
 ```
 dq.popleft()
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Peek a Value
 ```
@@ -78,14 +110,14 @@ dq.peek()
 dq.peekleft()
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Size
 ```
 dq.size()
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 
 ## Queue
@@ -98,7 +130,7 @@ from que_ import Queue
 q = Queue()
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Add a value to a Queue
 
@@ -106,7 +138,7 @@ Big 0 runtime: 0(1)
 q.enqueue('one')
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Remove a value from Queue
 
@@ -114,7 +146,7 @@ Big 0 runtime: 0(1)
 q.dequeue()
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Peek
 
@@ -122,7 +154,7 @@ Big 0 runtime: 0(1)
 q.peek()
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Size
 
@@ -130,7 +162,7 @@ Big 0 runtime: 0(1)
 q.size()
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Len
 
@@ -138,7 +170,7 @@ Big 0 runtime: 0(1)
 len(q)
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 
 ## Doubly Linked List
@@ -151,7 +183,7 @@ from doubly_linked_list import DoublyLinKedList
 dll = DoublyLinkedList()
 ```
 
-Big 0 runtime = O(1)
+Big O runtime = O(1)
 
 ### Push a Value:
 
@@ -159,7 +191,7 @@ Big 0 runtime = O(1)
 dll.push('one')
 ```
 
-Big 0 runtime = O(1)
+Big O runtime = O(1)
 
 ### Append a Value:
 
@@ -167,7 +199,7 @@ Big 0 runtime = O(1)
 dll.append('one')
 ```
 
-Big 0 runtime = O(1)
+Big O runtime = O(1)
 
 ### Pop a Value:
 
@@ -175,7 +207,7 @@ Big 0 runtime = O(1)
 ll.pop()
 ```
 
-Big 0 runtime = O(1)
+Big O runtime = O(1)
 
 ### Shift a Value:
 
@@ -183,7 +215,7 @@ Big 0 runtime = O(1)
 ll.shift()
 ```
 
-Big 0 runtime = O(1)
+Big O runtime = O(1)
 
 ### Remove a Value:
 
@@ -191,7 +223,7 @@ Big 0 runtime = O(1)
 ll.remove('one')
 ```
 
-Big 0 runtime = O(n)
+Big O runtime = O(n)
 
 
 ## Stack
@@ -204,7 +236,7 @@ from stack import Stack
 stck = Stack()
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Push a value:
 
@@ -212,7 +244,7 @@ Big 0 runtime: 0(1)
 stck.push('one')
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Pop a value:
 
@@ -220,7 +252,7 @@ Big 0 runtime: 0(1)
 stck.pop()
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Get a length value:
 
@@ -228,7 +260,7 @@ Big 0 runtime: 0(1)
 len(stck)
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 
 ## Linked-List
@@ -241,7 +273,7 @@ from linked_list import LinkedList
 ll = LinkedList()
 ```
 
-Big O runtime: 0(1)
+Big O runtime: O(1)
 
 ### Push a value:
 
@@ -249,7 +281,7 @@ Big O runtime: 0(1)
 ll.push('one')
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Pop a value:
 
@@ -258,7 +290,7 @@ ll.pop()
 'one'
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Size a value:
 
@@ -268,7 +300,7 @@ len(ll)
 1
 ```
 
-Big 0 runtime: 0(1)
+Big O runtime: O(1)
 
 ### Search a value:
 
@@ -277,7 +309,7 @@ ll.search('one')
 <linked_list.Node at 0x106b6ce10>
 ```
 
-Big 0 runtime: 0(n)
+Big O runtime: O(n)
 
 ### Remove a value:
 
@@ -286,7 +318,7 @@ node = ll.search('one')
 ll.remove(node)
 ```
 
-Big 0 runtime: 0(n)
+Big O runtime: O(n)
 
 ### Display the linked list:
 
@@ -298,7 +330,7 @@ ll.display()
 "('one', 'two', 'three')"
 ```
 
-Big 0 runtime: 0(n)
+Big O runtime: O(n)
 
 ## Architecture
 Written in python, tested with pytest and tox.
