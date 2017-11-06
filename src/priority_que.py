@@ -23,4 +23,13 @@ class Priorityq(object):
             return self._q[max(self._q.keys())][0]
 
     def pop(self):
-        """."""
+        """Remove and return highest priority item."""
+        if self._q:
+            vip = max(self._q.keys())
+            if len(self._q[vip]) > 1:
+                return self._q[vip].pop(0)
+            elif len(self._q[vip]) == 1:
+                node = self.peek()
+                del self._q[vip]
+                return node
+        raise IndexError('Cannot pop for empty queue')
