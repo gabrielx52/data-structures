@@ -10,7 +10,7 @@ class Graph(object):
 
     def nodes(self):
         """Return a list of all nodes in the graph."""
-        return self._g.keys()
+        return list(self._g.keys())
 
     def edges(self):
         """Return a list of all edges in the graph."""
