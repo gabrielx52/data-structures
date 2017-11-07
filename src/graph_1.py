@@ -14,8 +14,11 @@ class Graph(object):
 
     def edges(self):
         """Return a list of all edges in the graph."""
-        vals = list(self._q.values())
-        edges = [item for sublist in vals for item in sublist]
+        edges = []
+        for key in self._g:
+            if self._g[key]:
+                for value in self._g[key]:
+                    edges.append((key, value))
         return edges
 
     def add_node(self, val):
