@@ -1,11 +1,11 @@
-"""."""
+"""Graph data structure."""
 
 
 class Graph(object):
-    """."""
+    """Graph data structure class."""
 
     def __init__(self):
-        """."""
+        """Constructor method for graph."""
         self._g = {}
 
     def nodes(self):
@@ -20,6 +20,9 @@ class Graph(object):
 
     def add_node(self, val):
         """Add a new node to the graph."""
+        if val in self._g.keys():
+            raise ValueError('Node already exists.')
+        self._g[val] = []
 
     def add_edge(self, val1, val2):
         """. Add a new edge to the graph."""
