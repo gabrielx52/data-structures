@@ -25,7 +25,16 @@ class Graph(object):
         self._g[val] = []
 
     def add_edge(self, val1, val2):
-        """. Add a new edge to the graph."""
+        """Add a new edge to the graph."""
+        if val1 not in self.nodes():
+            self.add_node(val1)
+        if val2 not in self.nodes():
+            self.add_node(val2)
+        if val2 == val1:
+            raise ValueError('Cannot have a self-referential edge.')
+        tmp = self._g[val1]
+        tmp.append(val2)
+        self._g[val1] = list(set(tmp))
 
     def del_node(self, val):
         """Delete the node containing ‘val’."""
