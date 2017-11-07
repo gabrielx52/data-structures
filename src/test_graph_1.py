@@ -22,7 +22,7 @@ def test_add_edges_return_val():
     from graph_1 import Graph
     g = Graph()
     g.add_edge(2, 3)
-    assert g._g == {2:[3], 3:[]}
+    assert g._g == {2: [3], 3: []}
 
 
 def test_nodes_return_added_node_with_empty_list():
