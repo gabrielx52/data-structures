@@ -41,6 +41,14 @@ class Graph(object):
 
     def del_node(self, val):
         """Delete the node containing ‘val’."""
+        if val in self.nodes():
+            del self._g[val]
+            for key in self._g:
+                for edge in self._g[key]:
+                    if edge == val:
+                        self._g[key].remove(edge)
+        else:
+            raise ValueError('{} not in graph'.format(val))
 
     def del_edge(self, val1, val2):
         """Delete an edge from the graph."""
