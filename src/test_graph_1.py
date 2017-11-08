@@ -62,3 +62,10 @@ def test_del_node_raises_error_if_not_value(g3_fixt):
     """Test graph raises error if no node detected."""
     with pytest.raises(ValueError):
         g3_fixt.del_node(4)
+
+
+def test_del_edge_deletes_an_edge(g3_fixt):
+    """Test that del_edge method deletes an edge."""
+    g3_fixt.add_edge(1, 2)
+    g3_fixt.del_edge(1, 2)
+    assert g3_fixt.edges() == []
