@@ -55,11 +55,17 @@ class Graph(object):
         if (val1 in self.nodes()) and (val2 in self.nodes()):
             if val2 in self._g[val1]:
                 self._g[val1].remove(val2)
+            else:
+                raise ValueError('Cannot remove non_existent edge.')
         else:
             raise ValueError('Cannot remove non-existent edge.')
 
     def has_node(self, val):
         """True if node present in graph, else False."""
+        if self._g.nodes():
+            return True
+        else:
+            return False
 
     def neighbors(self, val):
         """Return the list of all node's neighbor nodes."""
