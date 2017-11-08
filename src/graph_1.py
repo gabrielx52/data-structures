@@ -52,6 +52,11 @@ class Graph(object):
 
     def del_edge(self, val1, val2):
         """Delete an edge from the graph."""
+        if (val1 in self.nodes()) and (val2 in self.nodes()):
+            if val2 in self._g[val1]:
+                self._g[val1].remove(val2)
+        else:
+            raise ValueError('Cannot remove non-existent edge.')
 
     def has_node(self, val):
         """True if node present in graph, else False."""
