@@ -81,3 +81,13 @@ def test_del_edge_raises_error_for_non_existent_edge(g3_fixt):
     """Test that del_edge raises value error when passed non-existent edge."""
     with pytest.raises(ValueError):
         g3_fixt.del_edge(1, 3)
+
+
+def test_has_node_return_true_if_node_present(g3_fixt):
+    """Test has_node method returns True if node exists."""
+    assert g3_fixt.has_node(1) is True
+
+
+def test_has_node_return_false_if_node_not_present(g3_fixt):
+    """Test has_node method returns False if node doesn't exist."""
+    assert g3_fixt.has_node(4) is False
