@@ -69,6 +69,11 @@ class Graph(object):
 
     def neighbors(self, val):
         """Return the list of all node's neighbor nodes."""
+        new_list = []
+        for edge in self.edges():
+            if val == edge[1]:
+                new_list.append(edge[0])
+        return new_list
 
     def adjacent(self, val1, val2):
         """True if edge connecting val1 and val2, else False."""
