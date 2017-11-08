@@ -69,3 +69,15 @@ def test_del_edge_deletes_an_edge(g3_fixt):
     g3_fixt.add_edge(1, 2)
     g3_fixt.del_edge(1, 2)
     assert g3_fixt.edges() == []
+
+
+def test_del_edge_raises_error_for_non_existent_node(g3_fixt):
+    """Test that del_edge raises value error when passed non-existent node."""
+    with pytest.raises(ValueError):
+        g3_fixt.del_edge(1, 4)
+
+
+def test_del_edge_raises_error_for_non_existent_edge(g3_fixt):
+    """Test that del_edge raises value error when passed non-existent edge."""
+    with pytest.raises(ValueError):
+        g3_fixt.del_edge(1, 3)
