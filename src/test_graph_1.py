@@ -50,3 +50,8 @@ def test_edges_method_returns_list_of_tuples_of_edges(g3_fixt):
     g3_fixt.add_edge(1, 3)
     g3_fixt.add_edge(2, 3)
     assert g3_fixt.edges() == [(1, 2), (1, 3), (2, 3)]
+
+
+def test_del_node_removes_node(g3_fixt):
+    """Test node removed."""
+    assert g.del_node(1) = {2, 3}
