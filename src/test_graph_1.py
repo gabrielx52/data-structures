@@ -54,9 +54,10 @@ def test_edges_method_returns_list_of_tuples_of_edges(g3_fixt):
 
 def test_del_node_removes_node(g3_fixt):
     """Test node removed."""
-   from graph_1 import Graph
+    from graph_1 import Graph
     g = Graph()
-    assert g.del_node(1) = {2, 3}
+    g_del = g.del_node(1)
+    assert g._g == {2, 3}
 
 
 def test_del_node_raises_error_if_not_value():
@@ -65,4 +66,3 @@ def test_del_node_raises_error_if_not_value():
     g = Graph()
     with pytest.raises(ValueError):
         g.del_node()
-
