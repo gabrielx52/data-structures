@@ -36,6 +36,15 @@ def test_add_edges_return_val():
     assert g._g == {2: [3], 3: []}
 
 
+def test_add_edges_removes_duplicate_edge():
+    """Test add edge adds an edge and removes old duplicate."""
+    from graph_1 import Graph
+    g = Graph()
+    g.add_edge(2, 3)
+    g.add_edge(2, 3)
+    assert g._g == {2: [3], 3: []}
+
+
 def test_nodes_return_added_node_with_empty_list():
     """Test add node creates empty dict as starting value."""
     from graph_1 import Graph
@@ -91,3 +100,65 @@ def test_has_node_return_true_if_node_present(g3_fixt):
 def test_has_node_return_false_if_node_not_present(g3_fixt):
     """Test has_node method returns False if node doesn't exist."""
     assert g3_fixt.has_node(4) is False
+
+
+def test_value_error_when_making_dup_node(g3_fixt):
+    """Test a ValueError gets raised if attempting to make a duplicate node."""
+    with pytest.raises(ValueError):
+        g3_fixt.add_node(1)
+
+
+def test_value_error_with_self_referrencing_edge(g3_fixt):
+    """Test a ValueError gets raised if attempting to make a duplicate node."""
+    with pytest.raises(ValueError):
+        g3_fixt.add_edge(1, 1)
+
+
+def test_del_node_also_deletes_edges_to_deleted_node(g3_fixt):
+    """Test that edges to deleted node are also deleted."""
+    g3_fixt.add_edge(2, 1)
+    g3_fixt.del_node(1)
+    assert g3_fixt.edges() == []
+
+
+def test_neighbors_returns_list_of_neighbor_nodes(g3_fixt):
+    """Test that neighbors method returns list of neighbor nodes."""
+    g3_fixt.add_edge(1, 2)
+    g3_fixt.add_edge(1, 3)
+    g3_fixt.add_edge(1, 4)
+    assert g3_fixt.neighbors(1) == [2, 3, 4]
+
+
+def test_neighbors_of_non_existent_node_returns_value_error(g3_fixt):
+    """Test that neighbors method raises error if node isn't in graph."""
+    with pytest.raises(ValueError):
+        g3_fixt.neighbors(4)
+
+
+def test_adjacent_method_returns_false_on_non_adjacent_nodes(g3_fixt):
+    """Test that adjacent method returns false if nodes are not adjacent."""
+    assert g3_fixt.adjacent(1, 2) is False
+
+
+def test_adjacent_method_returns_true_on_adjacent_nodes(g3_fixt):
+    """Test that adjacent method returns true if nodes are adjacent."""
+    g3_fixt.add_edge(1, 2)
+    assert g3_fixt.adjacent(1, 2) is True
+
+
+def test_adjacent_method_raises_error_if_firstt_node_not_in_graph(g3_fixt):
+    """Test that adjacent method raise error if first node is not in graph."""
+    with pytest.raises(ValueError):
+        g3_fixt.adjacent(5, 1)
+
+
+def test_adjacent_method_raises_error_if_second_node_not_in_graph(g3_fixt):
+    """Test that adjacent method raise error if second node is not in graph."""
+    with pytest.raises(ValueError):
+        g3_fixt.adjacent(1, 5)
+
+
+def test_adjacent_method_raises_error_if_both_nodes_not_in_graph(g3_fixt):
+    """Test that adjacent method raise error if both nodes are not in graph."""
+    with pytest.raises(ValueError):
+        g3_fixt.adjacent(4, 5)
