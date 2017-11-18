@@ -75,3 +75,9 @@ class Graph(object):
         if val1 in self._g and val2 in self._g:
             return val2 in self._g[val1]
         raise ValueError('Nodes must be in graph')
+
+    def breadth_first_traversal(self, start_val):
+        """."""
+
+    def depth_first_traversal(self, start_val):
+        """."""
