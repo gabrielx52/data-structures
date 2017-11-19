@@ -202,3 +202,26 @@ def test_breadth_first_traversal_cycle(trav_fixt):
     assert trav_fixt.breadth_first_traversal(1) == [1, 2, 3,
                                                     4, 5, 6, 7,
                                                     8, 9, 10]
+
+
+def test_depth_first_traversal(trav_fixt):
+    """Test depth first traversal properly traverses graph."""
+    assert trav_fixt.depth_first_traversal(1) == [1, 2, 5,
+                                                  6, 8, 9, 10,
+                                                  3, 4, 7]
+
+
+def test_depth_first_traversal_multi_pointers(trav_fixt):
+    """Test depth first traversal with multi pointers to same node."""
+    trav_fixt.add_edge(2, 7)
+    assert trav_fixt.depth_first_traversal(1) == [1, 2, 5,
+                                                  6, 8, 9, 10,
+                                                  7, 3, 4]
+
+
+def test_depth_first_traversal_cycle(trav_fixt):
+    """Test depth first traversal properly traverses graph with cycle."""
+    trav_fixt.add_edge(10, 1)
+    assert trav_fixt.depth_first_traversal(1) == [1, 2, 5,
+                                                  6, 8, 9, 10,
+                                                  3, 4, 7]
