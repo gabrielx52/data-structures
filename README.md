@@ -5,6 +5,100 @@
 ## Overview
 Sample code for classic data structures
 
+## Graph
+
+### Make a Graph
+```
+from graph_1 import Graph
+g = Graph()
+```
+
+Big O runtime: O(1)
+
+### Add a node
+```
+g.add_node(1)
+```
+
+Big O runtime: O(1)
+
+### Add an edge
+```
+g.add_edge(1, 2)
+```
+
+Big O runtime: O(1)
+
+### Display nodes
+```
+g.nodes()
+[1, 2]
+```
+
+Big O runtime: O(1)
+
+### Display edges
+```
+g.edges()
+[(1, 2)]
+```
+
+Big O runtime: O(n**2)
+
+### Delete node
+```
+g.del_node(1)
+```
+
+Big O runtime: O(n**2)
+
+### Delete edge
+```
+g.del_edge((1, 2))
+```
+
+Big O runtime: O(n**2)
+
+### Check if graph has node
+```
+g.has_node(1)
+True
+```
+
+Big O runtime: O(1)
+
+### See node's neighbors
+```
+g.neighbors(1)
+[2, 3, 4]
+```
+
+Big O runtime: O(1)
+
+### See if two nodes are connected by an edge
+```
+g.adjacent((1, 7))
+False
+```
+
+Big O runtime: O(1)
+
+### Breatdth first traversal
+```
+g.breadth_first_traversal(1)
+[1, 2, 3, 4, 5]
+```
+
+Big O runtime: O(n)
+
+### Depth first traversal
+```
+g.breadth_first_traversal(1)
+[1, 2, 5, 3, 5]
+```
+
+Big O runtime: O(nk)
+
 ## Priority Que
 
 ### Make a Priority Que
