@@ -80,4 +80,15 @@ class Graph(object):
         """."""
 
     def depth_first_traversal(self, start_val):
-        """."""
+        """Traverse a stack."""
+        set_filled = set()
+        stack = ()
+        stack.append(start_val)
+        while stack:
+            visited_node = self._g.pop()
+            if visited_node in set_filled:
+                continue
+            set_filled.add(visited_node)
+            stack.extend(self._g[visited_node])
+            yield visited_node
+
