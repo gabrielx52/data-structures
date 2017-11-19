@@ -104,3 +104,17 @@ class Graph(object):
             stack.extend(self._g[visited_node][::-1])
             set_traversed.append(visited_node)
         return set_traversed
+
+if __name__ == '__main__':
+    g = Graph()
+    g.add_edge(1, 2)
+    g.add_edge(1, 3)
+    g.add_edge(1, 4)
+    g.add_edge(2, 5)
+    g.add_edge(2, 6)
+    g.add_edge(4, 7)
+    g.add_edge(6, 8)
+    g.add_edge(6, 9)
+    g.add_edge(9, 10)
+    print(g.breadth_first_traversal(1))
+    print(g.depth_first_traversal(1))
