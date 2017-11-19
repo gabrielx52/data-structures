@@ -75,3 +75,46 @@ class Graph(object):
         if val1 in self._g and val2 in self._g:
             return val2 in self._g[val1]
         raise ValueError('Nodes must be in graph')
+
+    def breadth_first_traversal(self, start_val):
+        """Return visited path of breadth first traversal."""
+        traversed = []
+        visited, queue = set(), []
+        queue.append(start_val)
+        while queue:
+            current = queue.pop(0)
+            if current in visited:
+                continue
+            visited.add(current)
+            queue.extend(self._g[current])
+            traversed.append(current)
+        return traversed
+
+    def depth_first_traversal(self, start_val):
+        """Traverse a stack."""
+        set_traversed = []
+        visited = set()
+        stack = []
+        stack.append(start_val)
+        while stack:
+            visited_node = stack.pop()
+            if visited_node in visited:
+                continue
+            visited.add(visited_node)
+            stack.extend(self._g[visited_node][::-1])
+            set_traversed.append(visited_node)
+        return set_traversed
+
+if __name__ == '__main__':
+    g = Graph()
+    g.add_edge(1, 2)
+    g.add_edge(1, 3)
+    g.add_edge(1, 4)
+    g.add_edge(2, 5)
+    g.add_edge(2, 6)
+    g.add_edge(4, 7)
+    g.add_edge(6, 8)
+    g.add_edge(6, 9)
+    g.add_edge(9, 10)
+    print(g.breadth_first_traversal(1))
+    print(g.depth_first_traversal(1))

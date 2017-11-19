@@ -13,6 +13,23 @@ def g3_fixt():
     return g
 
 
+@pytest.fixture
+def trav_fixt():
+    """Graph test fixture with nodes and edges."""
+    from graph_1 import Graph
+    g = Graph()
+    g.add_edge(1, 2)
+    g.add_edge(1, 3)
+    g.add_edge(1, 4)
+    g.add_edge(2, 5)
+    g.add_edge(2, 6)
+    g.add_edge(4, 7)
+    g.add_edge(6, 8)
+    g.add_edge(6, 9)
+    g.add_edge(9, 10)
+    return g
+
+
 def test_init_isinstance_dict():
     """Test is g an instance of Graph."""
     from graph_1 import Graph
@@ -162,3 +179,49 @@ def test_adjacent_method_raises_error_if_both_nodes_not_in_graph(g3_fixt):
     """Test that adjacent method raise error if both nodes are not in graph."""
     with pytest.raises(ValueError):
         g3_fixt.adjacent(4, 5)
+
+
+def test_breadth_first_traversal(trav_fixt):
+    """Test breadth first traversal properly traverses graph."""
+    assert trav_fixt.breadth_first_traversal(1) == [1, 2, 3,
+                                                    4, 5, 6, 7,
+                                                    8, 9, 10]
+
+
+def test_breadth_first_traversal_multi_pointers(trav_fixt):
+    """Test breadth first traversal with multi pointers to same node."""
+    trav_fixt.add_edge(2, 7)
+    assert trav_fixt.breadth_first_traversal(1) == [1, 2, 3,
+                                                    4, 5, 6, 7,
+                                                    8, 9, 10]
+
+
+def test_breadth_first_traversal_cycle(trav_fixt):
+    """Test breadth first traversal properly traverses graph with cycle."""
+    trav_fixt.add_edge(10, 1)
+    assert trav_fixt.breadth_first_traversal(1) == [1, 2, 3,
+                                                    4, 5, 6, 7,
+                                                    8, 9, 10]
+
+
+def test_depth_first_traversal(trav_fixt):
+    """Test depth first traversal properly traverses graph."""
+    assert trav_fixt.depth_first_traversal(1) == [1, 2, 5,
+                                                  6, 8, 9, 10,
+                                                  3, 4, 7]
+
+
+def test_depth_first_traversal_multi_pointers(trav_fixt):
+    """Test depth first traversal with multi pointers to same node."""
+    trav_fixt.add_edge(2, 7)
+    assert trav_fixt.depth_first_traversal(1) == [1, 2, 5,
+                                                  6, 8, 9, 10,
+                                                  7, 3, 4]
+
+
+def test_depth_first_traversal_cycle(trav_fixt):
+    """Test depth first traversal properly traverses graph with cycle."""
+    trav_fixt.add_edge(10, 1)
+    assert trav_fixt.depth_first_traversal(1) == [1, 2, 5,
+                                                  6, 8, 9, 10,
+                                                  3, 4, 7]
