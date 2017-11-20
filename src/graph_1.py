@@ -105,6 +105,12 @@ class Graph(object):
             set_traversed.append(visited_node)
         return set_traversed
 
+    def dijkstra(self):
+        """Find the shortest path using Dijksta's algorithm."""
+
+    def bellman_ford(self):
+        """Find the shortest path using Bellman-Ford's algorithm."""
+
 if __name__ == '__main__':
     g = Graph()
     g.add_edge(1, 2)
