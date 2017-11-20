@@ -10,7 +10,7 @@ def test_linked_list_instance():
 def test_node_instance():
     """Test new instance of Node obj."""
     from linked_list import Node
-    assert type(Node()) == Node
+    assert type(Node('val', None)) == Node
 
 
 def test_pop():
@@ -29,6 +29,24 @@ def test_linked_list_count():
     ll.push('two')
     ll.push('three')
     assert ll._count == 3
+
+
+def test_linked_list_push_int():
+    """Test linked list with ints."""
+    from linked_list import LinkedList
+    ll = LinkedList()
+    ll.push(1)
+    assert len(ll) == 1
+
+
+def test_linked_list_push_int_bool_and_str():
+    """Test linked list with ints and strings."""
+    from linked_list import LinkedList
+    ll = LinkedList()
+    ll.push(1)
+    ll.push('two')
+    ll.push(True)
+    assert len(ll) == 3
 
 
 def test_linked_list_size():
