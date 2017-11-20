@@ -50,7 +50,7 @@ def test_add_edges_return_val():
     from graph_1 import Graph
     g = Graph()
     g.add_edge(2, 3)
-    assert g._g == {2: [3], 3: []}
+    assert g._g == {2: {3: 0}, 3: {}}
 
 
 def test_add_edges_removes_duplicate_edge():
@@ -59,7 +59,7 @@ def test_add_edges_removes_duplicate_edge():
     g = Graph()
     g.add_edge(2, 3)
     g.add_edge(2, 3)
-    assert g._g == {2: [3], 3: []}
+    assert g._g == {2: {3: 0}, 3: {}}
 
 
 def test_nodes_return_added_node_with_empty_list():
@@ -67,7 +67,7 @@ def test_nodes_return_added_node_with_empty_list():
     from graph_1 import Graph
     g = Graph()
     g.add_node(3)
-    assert g._g[3] == []
+    assert g._g[3] == {}
 
 
 def test_edges_method_returns_list_of_tuples_of_edges(g3_fixt):
@@ -75,7 +75,7 @@ def test_edges_method_returns_list_of_tuples_of_edges(g3_fixt):
     g3_fixt.add_edge(1, 2)
     g3_fixt.add_edge(1, 3)
     g3_fixt.add_edge(2, 3)
-    assert g3_fixt.edges() == [(1, 2), (1, 3), (2, 3)]
+    assert g3_fixt.edges() == [(1, 2, 0), (1, 3, 0), (2, 3, 0)]
 
 
 def test_del_node_removes_node(g3_fixt):
