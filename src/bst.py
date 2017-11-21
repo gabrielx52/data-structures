@@ -19,8 +19,8 @@ class BST(object):
         self.iter = iterable
         self.root = None
         self._size = 0
-        self.depth = 0
-        self.balance = 0
+        self._depth = 0
+        self._balance = 0
 
     def insert(self, val):
         """Insert value into BST."""
@@ -31,23 +31,23 @@ class BST(object):
         deep = 0
         current = self.root
         if val > self.root.val:
-            self.balance -= 1
+            self._balance -= 1
         else:
-            self.balance += 1
+            self._balance += 1
         while True:
             if val > current.val:
+                deep += 1
                 if current.right:
                     current = current.right
-                    deep += 1
                 else:
                     current.right = Node(val)
                     self._size += 1
                     self.depth_checker(deep)
                     return
             if val < current.val:
+                deep += 1
                 if current.left:
                     current = current.left
-                    deep += 1
                 else:
                     current.left = Node(val)
                     self._size += 1
@@ -58,27 +58,30 @@ class BST(object):
 
     def depth_checker(self, depth):
         """Compare and update current depth with node depth."""
-        if depth > self.depth:
-            self.depth = depth
+        if depth > self._depth:
+            self._depth = depth
 
     def search(self, val):
         """Return node containing val."""
         current = self.root
-        if val == current.val:
-            return current
-        while True:
-            if val > current.val:
-                if current.right:
-                    current = current.right
-                else:
-                    return None
-            if val < current.val:
-                if current.left:
-                    current = current.left
-                else:
-                    return None
+        try:
             if val == current.val:
                 return current
+            while True:
+                if val > current.val:
+                    if current.right:
+                        current = current.right
+                    else:
+                        return None
+                if val < current.val:
+                    if current.left:
+                        current = current.left
+                    else:
+                        return None
+                if val == current.val:
+                    return current
+        except AttributeError:
+            return
 
     def size(self):
         """Return size of BST."""
@@ -86,7 +89,7 @@ class BST(object):
 
     def depth(self):
         """Return depth of BST."""
-        # return self.depth
+        return self._depth
 
     def contains(self, val):
         """Return True/False if val is in BST."""
@@ -94,4 +97,4 @@ class BST(object):
 
     def balance(self):
         """Return True/False if BST is balanced."""
-        return self.balance
+        return self._balance
