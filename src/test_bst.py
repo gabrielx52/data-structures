@@ -40,6 +40,33 @@ def test_bst_is_bst_object():
     assert isinstance(tree, BST)
 
 
+def test_insert_one_node_on_empty_tree(empty_tree):
+    """Test that inserted node on empty tree sets root to node."""
+    empty_tree.insert(10)
+    assert empty_tree._root.val == 10
+
+
+def test_insert_node_with_string_as_value(empty_tree):
+    """Test for TypeError when value is a string."""
+    with pytest.raises(TypeError):
+        empty_tree.insert('G')
+
+
+def test_insert_method_inserts_nodes(empty_tree):
+    """Test that insert method inserts nodes in correct order."""
+    empty_tree.insert(10)
+    empty_tree.insert(14)
+    empty_tree.insert(16)
+    empty_tree.insert(15)
+    assert empty_tree._root.right.right.left.val == 15
+
+
+def test_insert_duplicate_node_does_nothing(full_tree):
+    """Test that inserting duplicate into tree doesn't insert it."""
+    full_tree.insert(10)
+    assert full_tree.size() == 8
+
+
 def test_bst_size_attr_empty_tree(empty_tree):
     """Test size attr is 0 with empty tree."""
     assert empty_tree._size == 0
@@ -140,6 +167,12 @@ def test_bst_balance_method_on_really_left_balanced_tree(empty_tree):
     assert empty_tree.balance() == 19
 
 
+def test_node_has_correct_children(full_tree):
+    """Test that a node has the correct children."""
+    node = full_tree.search(6)
+    assert node.left.val == 4 and node.right.val == 8
+
+
 def test_search_returns_none_on_empty_tree(empty_tree):
     """Test that search method returns None on empty tree."""
     assert empty_tree.search(1) is None
@@ -167,10 +200,55 @@ def test_search_returns_node_at_bottom_of_tree(full_tree):
 
 
 def test_contains_returns_false_on_empty_tree(empty_tree):
-    """Test that contains method returns false on empty tree."""
+    """Test that contains method returns False on empty tree."""
     assert empty_tree.contains(1) is False
 
 
 def test_contains_returns_false_on_non_existent_node(full_tree):
-    """Test that contains method returns false with non-existent node."""
+    """Test that contains method returns False with non-existent node."""
     assert full_tree.contains(1) is False
+
+
+def test_contains_returns_true_with_root_node(full_tree):
+    """Test that contains method returns True with root node."""
+    assert full_tree.contains(10) is True
+
+
+def test_contains_returns_true_with_bottom_node(full_tree):
+    """Test that contains method returns True with bottom node."""
+    assert full_tree.contains(14) is True
+
+
+def test_initiate_bst_with_list_of_numbers_iterable_works():
+    """Test that BST obj takes iterable and creates a proper BST with it."""
+    from bst import BST
+    tree = BST([10, 12, 16, 6, 8, 4, 14, 2])
+    assert tree.size() == 8
+
+
+def test_initiate_bst_with_list_of_numbers_with_dupes():
+    """Test that BST obj takes iterable with dupes and handles it properly."""
+    from bst import BST
+    tree = BST([10, 12, 16, 6, 6, 6, 8, 4, 14, 2, 6])
+    assert tree.size() == 8
+
+
+def test_initiate_bst_with_set_of_numbers_iterable_works():
+    """Test that BST obj takes iterable and creates a proper BST with it."""
+    from bst import BST
+    tree = BST({10, 12, 16, 6, 8, 4, 14, 2})
+    assert tree.size() == 8
+
+
+def test_initiate_bst_with_int_raises_error():
+    """Test that BST obj raises TypeError if given an int."""
+    from bst import BST
+    with pytest.raises(TypeError):
+        BST('123445')
+
+
+def test_initiate_bst_with_str_raises_error():
+    """Test that BST obj raises TypeError if given a str."""
+    from bst import BST
+    with pytest.raises(TypeError):
+        BST('string')

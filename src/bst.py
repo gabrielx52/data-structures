@@ -16,45 +16,53 @@ class BST(object):
 
     def __init__(self, iterable=None):
         """Constructor method for BST."""
-        self.iter = iterable
-        self.root = None
+        self._root = None
         self._size = 0
         self._depth = 0
         self._balance = 0
+        if iterable:
+            if isinstance(iterable, (list, set)):
+                for item in iterable:
+                    self.insert(item)
+            else:
+                raise TypeError('Iterable must be a list or set.')
 
     def insert(self, val):
         """Insert value into BST."""
-        if self.root is None:
-            self.root = Node(val)
-            self._size += 1
-            return
-        deep = 0
-        current = self.root
-        if val > self.root.val:
-            self._balance -= 1
-        else:
-            self._balance += 1
-        while True:
-            if val > current.val:
-                deep += 1
-                if current.right:
-                    current = current.right
-                else:
-                    current.right = Node(val)
-                    self._size += 1
-                    self.depth_checker(deep)
-                    return
-            if val < current.val:
-                deep += 1
-                if current.left:
-                    current = current.left
-                else:
-                    current.left = Node(val)
-                    self._size += 1
-                    self.depth_checker(deep)
-                    return
-            if val == current.val:
+        if isinstance(val, (int, float)):
+            if self._root is None:
+                self._root = Node(val)
+                self._size += 1
                 return
+            deep = 0
+            current = self._root
+            if val > self._root.val:
+                self._balance -= 1
+            else:
+                self._balance += 1
+            while True:
+                if val > current.val:
+                    deep += 1
+                    if current.right:
+                        current = current.right
+                    else:
+                        current.right = Node(val)
+                        self._size += 1
+                        self.depth_checker(deep)
+                        return
+                if val < current.val:
+                    deep += 1
+                    if current.left:
+                        current = current.left
+                    else:
+                        current.left = Node(val)
+                        self._size += 1
+                        self.depth_checker(deep)
+                        return
+                if val == current.val:
+                    return
+        else:
+            raise TypeError('Node value must be float or int.')
 
     def depth_checker(self, depth):
         """Compare and update current depth with node depth."""
@@ -63,7 +71,7 @@ class BST(object):
 
     def search(self, val):
         """Return node containing val."""
-        current = self.root
+        current = self._root
         try:
             if val == current.val:
                 return current
