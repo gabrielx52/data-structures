@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gabrielx52/data-structures.svg?branch=bst)](https://travis-ci.org/gabrielx52/data-structures)
+
 # DATA STRUCTURES
 
 **Author**: Gabriel Meringolo, Marco Zangari
