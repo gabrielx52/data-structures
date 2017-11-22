@@ -1,0 +1,13 @@
+language: python
+python:
+  - "3.6"
+
+before_install:
+  - pip install pytest pytest-cov
+  - pip install coveralls
+
+script: 
+  - py.test --cov=src --cov-report term-missing
+
+after_success:
+  - coveralls
