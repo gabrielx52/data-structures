@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/gabrielx52/data-structures.svg?branch=bst)](https://travis-ci.org/gabrielx52/data-structures)
+[![Build Status](https://travis-ci.org/gabrielx52/data-structures.svg?branch=master)](https://travis-ci.org/gabrielx52/data-structures)
+[![Coverage Status](https://coveralls.io/repos/github/gabrielx52/data-structures/badge.svg?branch=master)](https://coveralls.io/github/gabrielx52/data-structures?branch=master)
 
 # DATA STRUCTURES
 
