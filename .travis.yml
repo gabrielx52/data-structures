@@ -1,0 +1,20 @@
+language: python
+python:
+  - "2.7"
+  - "3.6"
+
+
+# command to install dependencies
+# install:
+  # - pip install -r requirements.pip
+  # - pip install coveralls
+before_install:
+  - pip install pytest pytest-cov
+
+# commands to run tests 
+script: 
+  - py.test --cov
+  # - coverage run lending_library/manage.py test lending_library
+
+# after_success:
+#   - coveralls
