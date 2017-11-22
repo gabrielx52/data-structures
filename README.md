@@ -8,6 +8,63 @@
 ## Overview
 Sample code for classic data structures
 
+## Binary Search Tree
+
+### Create BST
+```
+from bst import BST
+tree = BST()
+```
+
+Big O runtime: O(1)
+
+### Insert node
+```
+tree.insert(1)
+```
+
+Big O runtime: O(logn)
+
+### Check depth
+```
+tree.depth()
+1
+```
+
+Big O runtime: O(1)
+
+### Search for node
+```
+tree.search(1)
+<__main__.Node at 0x106e3e908>
+```
+
+Big O runtime: O(logn)
+
+### Check size
+```
+tree.size()
+1
+```
+
+Big O runtime: O(1)
+
+### Check if BST contains node
+```
+tree.contains(1)
+True
+```
+
+Big O runtime: O(logn)
+
+### Check if BST balanced
+```
+tree.balance()
+0
+```
+
+Big O runtime: O(1)
+
 ## Graph
 
 ### Make a Graph
