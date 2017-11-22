@@ -8,8 +8,6 @@ hupper==1.0
 ipython==6.2.1
 ipython-genutils==0.2.0
 jedi==0.11.0
-Jinja2==2.9.6
-learning-journal==0.0
 Mako==1.0.7
 MarkupSafe==1.0
 parso==0.1.0
@@ -24,12 +22,6 @@ prompt-toolkit==1.0.15
 ptyprocess==0.5.2
 py==1.4.34
 Pygments==2.2.0
-pyramid==1.9.1
-pyramid-debugtoolbar==4.3
-pyramid-jinja2==2.7
-pyramid-mako==1.0.2
-pyramid-retry==0.5
-pyramid-tm==2.2
 pytest==3.2.3
 pytest-cov==2.5.1
 pytest-watch==4.1.0
@@ -37,7 +29,6 @@ PyYAML==3.12
 repoze.lru==0.7
 simplegeneric==0.8.1
 six==1.11.0
-SQLAlchemy==1.2.0b3
 tox==2.9.1
 traitlets==4.3.2
 transaction==2.1.2
@@ -48,6 +39,3 @@ waitress==1.1.0
 watchdog==0.8.3
 wcwidth==0.1.7
 WebOb==1.7.3
-zope.deprecation==4.3.0
-zope.interface==4.4.3
-zope.sqlalchemy==0.7.7
