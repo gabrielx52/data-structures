@@ -106,3 +106,18 @@ class BST(object):
     def balance(self):
         """Return True/False if BST is balanced."""
         return self._balance
+
+
+if __name__ == '__main__':  # pragma: no cover
+    import timeit as ti
+    tree_1 = BST([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
+    tree_2 = BST([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    tree_3 = BST([5, 6, 4, 7, 3, 8, 2, 9, 1, 10])
+
+    time_1 = ti.timeit("tree_1.search(5)", setup="from __main__ import tree_1")
+    time_2 = ti.timeit("tree_2.search(5)", setup="from __main__ import tree_2")
+    time_3 = ti.timeit("tree_3.search(8)", setup="from __main__ import tree_3")
+
+    print('Negatively skewed tree search time: ', time_1)
+    print('Positively skewed tree search time: ', time_2)
+    print('Balanced tree search time: ', time_3)
