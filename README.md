@@ -65,6 +65,46 @@ tree.balance()
 
 Big O runtime: O(1)
 
+### In-order traversal generator
+```
+tree = BST([10, 12, 16, 6, 8, 4, 14, 2])
+gen = tree.in_order()
+[_ for _ in gen]
+[2, 4, 6, 8, 10, 12, 14, 16]
+```
+
+Big O runtime: O(n)
+
+### Pre-order traversal generator
+```
+tree = BST([10, 12, 16, 6, 8, 4, 14, 2])
+gen = tree.pre_order()
+[_ for _ in gen]
+[2, 4, 6, 8, 10, 12, 14, 16]
+```
+
+Big O runtime: O(n)
+
+### Post-order traversal generator
+```
+tree = BST([10, 12, 16, 6, 8, 4, 14, 2])
+gen = tree.post_order()
+[_ for _ in gen]
+[2, 4, 8, 6, 14, 16, 12, 10]
+```
+
+Big O runtime: O(n)
+
+### Breadth-first traversal generator
+```
+tree = BST([10, 12, 16, 6, 8, 4, 14, 2])
+gen = tree.breadth_first()
+[_ for _ in gen]
+[10, 6, 12, 4, 8, 16, 2, 14]
+```
+
+Big O runtime: O(n)
+
 ## Graph
 
 ### Make a Graph
