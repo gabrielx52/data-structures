@@ -290,3 +290,39 @@ def test_pre_order_method_returns_empty_gen_with_empty_tree(empty_tree):
     """Test the pre-order method returns a empty gen with empty tree."""
     pre_order_gen = empty_tree.pre_order()
     assert [n for n in pre_order_gen] == []
+
+
+def test_post_order_method_returns_a_generator(full_tree):
+    """Test the post-order method returns a generator."""
+    post_order_gen = full_tree.post_order()
+    assert isinstance(post_order_gen, types.GeneratorType)
+
+
+def test_post_order_method_correctly_traverses_bst(full_tree):
+    """Test the post-order method works correctly."""
+    post_order_gen = full_tree.post_order()
+    assert [n for n in post_order_gen] == [2, 4, 8, 6, 14, 16, 12, 10]
+
+
+def test_post_order_method_returns_empty_gen_with_empty_tree(empty_tree):
+    """Test the post-order method returns a empty gen with empty tree."""
+    post_order_gen = empty_tree.post_order()
+    assert [n for n in post_order_gen] == []
+
+
+def test_breadth_first_method_returns_a_generator(full_tree):
+    """Test the breadth_first method returns a generator."""
+    breadth_first_gen = full_tree.breadth_first()
+    assert isinstance(breadth_first_gen, types.GeneratorType)
+
+
+def test_breadth_first_method_correctly_traverses_bst(full_tree):
+    """Test the breadth_first method works correctly."""
+    breadth_first_gen = full_tree.breadth_first()
+    assert [n for n in breadth_first_gen] == [10, 6, 12, 4, 8, 16, 2, 14]
+
+
+def test_breadth_first_method_returns_empty_gen_with_empty_tree(empty_tree):
+    """Test the breadth_first method returns a empty gen with empty tree."""
+    breadth_first_gen = empty_tree.breadth_first()
+    assert [n for n in breadth_first_gen] == []
