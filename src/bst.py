@@ -107,6 +107,40 @@ class BST(object):
         """Return True/False if BST is balanced."""
         return self._balance
 
+    def in_order(self):
+        """Return in-order traversal generator."""
+        traversal = []
+        stack = []
+        current = self._root
+        while current or stack:
+            if current:
+                stack.append(current)
+                current = current.left
+            else:
+                current = stack.pop()
+                traversal.append(current.val)
+                current = current.right
+        return (_ for _ in traversal)
+
+    def pre_order(self):
+        """Return pre-order traversal generator."""
+        traversal = []
+        stack = [self._root]
+        current = None
+        while current or stack:
+            if not current:
+                current = stack.pop()
+            else:
+                traversal.append(current.val)
+                stack.extend([current.right, current.left])
+                current = stack.pop()
+        return (_ for _ in traversal)
+
+    def post_order(self):
+        """Return post-order traversal generator."""
+
+    def breadth_first(self):
+        """Return breadth-first traversal generator."""
 
 if __name__ == '__main__':  # pragma: no cover
     import timeit as ti

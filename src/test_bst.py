@@ -1,4 +1,6 @@
 """Test module for BST."""
+import types
+
 import pytest
 
 
@@ -252,3 +254,39 @@ def test_initiate_bst_with_str_raises_error():
     from bst import BST
     with pytest.raises(TypeError):
         BST('string')
+
+
+def test_in_order_method_returns_a_generator(full_tree):
+    """Test the in-order method returns a generator."""
+    in_order_gen = full_tree.in_order()
+    assert isinstance(in_order_gen, types.GeneratorType)
+
+
+def test_in_order_method_correctly_traverses_bst(full_tree):
+    """Test the in-order method works correctly."""
+    in_order_gen = full_tree.in_order()
+    assert [n for n in in_order_gen] == [2, 4, 6, 8, 10, 12, 14, 16]
+
+
+def test_in_order_method_returns_empty_gen_with_empty_tree(empty_tree):
+    """Test the in-order method returns a empty gen with empty tree."""
+    in_order_gen = empty_tree.in_order()
+    assert [n for n in in_order_gen] == []
+
+
+def test_pre_order_method_returns_a_generator(full_tree):
+    """Test the pre-order method returns a generator."""
+    pre_order_gen = full_tree.pre_order()
+    assert isinstance(pre_order_gen, types.GeneratorType)
+
+
+def test_pre_order_method_correctly_traverses_bst(full_tree):
+    """Test the pre-order method works correctly."""
+    pre_order_gen = full_tree.pre_order()
+    assert [n for n in pre_order_gen] == [10, 6, 4, 2, 8, 12, 16, 14]
+
+
+def test_pre_order_method_returns_empty_gen_with_empty_tree(empty_tree):
+    """Test the pre-order method returns a empty gen with empty tree."""
+    pre_order_gen = empty_tree.pre_order()
+    assert [n for n in pre_order_gen] == []
