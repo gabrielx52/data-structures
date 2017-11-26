@@ -65,3 +65,11 @@ def test_bst_is_object():
     from bst import BST
     bst = BST()
     assert isinstance(bst, BST)
+
+
+def test_insert_one_node(empty_tree):
+    """Test insert inserts one node object."""
+    from bst import BST
+    bst = BST()
+    bst.insert(50)
+    assert bst._size == 1
