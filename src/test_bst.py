@@ -99,3 +99,6 @@ def test_insert_two_nodes_one_return_root(empty_tree):
     bst.insert(50)
     bst.insert(45)
     assert bst.root.val == 50
+
+
+def
