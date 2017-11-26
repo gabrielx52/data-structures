@@ -73,3 +73,6 @@ def test_insert_one_node(empty_tree):
     bst = BST()
     bst.insert(50)
     assert bst._size == 1
+
+
+def test_search_returns_

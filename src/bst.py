@@ -61,6 +61,22 @@ class BST(object):
         """."""
         if self.root is None:
             raise KeyError
+        else:
+            curr = self.root
+            while True:
+                if val > curr.val:
+                    if curr.right:
+                        curr = curr.right
+                    else:
+                        raise ValueError('No such value in tree')
+                elif val < curr.val:
+                    if curr.left:
+                        curr = curr.left
+                    else:
+                        raise ValueError('No such value in tree')
+                elif val == curr.val:
+                    return curr
+
 
     def size(self):
         """Return the size of BST."""
