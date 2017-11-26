@@ -75,4 +75,27 @@ def test_insert_one_node(empty_tree):
     assert bst._size == 1
 
 
-def test_search_returns_
+def test_insert_one_node_left_value_none(empty_tree):
+    """Test insert inserts one node object."""
+    from bst import BST
+    bst = BST()
+    bst.insert(50)
+    assert bst.root.left == None
+
+
+def test_insert_two_nodes_one_lesser_so_left(empty_tree):
+    """Test insert places lesser node to node root left."""
+    from bst import BST
+    bst = BST()
+    bst.insert(50)
+    bst.insert(45)
+    assert bst.root.left.val == 45
+
+
+def test_insert_two_nodes_one_return_root(empty_tree):
+    """Test insert places lesser node to node root left."""
+    from bst import BST
+    bst = BST()
+    bst.insert(50)
+    bst.insert(45)
+    assert bst.root.val == 50

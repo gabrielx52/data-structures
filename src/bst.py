@@ -13,7 +13,7 @@ class Node(object):
         """Initialize node for binary search tree."""
         self.left = None
         self.right = None
-        self.value = val
+        self.val = val
 
 
 class BST(object):
@@ -39,10 +39,10 @@ class BST(object):
                 if val > curr.val:
                     if curr.right:
                         curr = curr.right
-                else:
-                    curr.right = Node(val)
-                    self._size += 1
-                    return
+                    else:
+                        curr.right = Node(val)
+                        self._size += 1
+                        return
                 if val < curr.val:
                     if curr.left:
                         curr = curr.left
