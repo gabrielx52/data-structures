@@ -52,8 +52,16 @@ def unblncd_tree():
     bst.insert(80)
     return bst
 
+
 def test_init_isinstance_node(empty_tree):
     """Test node is node at initialization."""
     from bst import Node
     node = Node(50)
     assert isinstance(node, Node)
+
+
+def test_bst_is_object():
+    """Test object is an instance of object."""
+    from bst import BST
+    bst = BST()
+    assert isinstance(bst, BST)
