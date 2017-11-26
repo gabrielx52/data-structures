@@ -9,13 +9,11 @@ Language
 class Node(object):
     """Node for binary search tree data structure."""
 
-    def __init__(self, left, right, val):
+    def __init__(self, val):
         """Initialize node for binary search tree."""
         self.left = None
         self.right = None
         self.value = val
-        self.depth = 0
-        self._size = 0
 
 
 class BST(object):
@@ -24,6 +22,8 @@ class BST(object):
     def __init__(self, iterable=None):
         """Initiatalize the BST."""
         self.root = None
+        self.depth = 0
+        self._size = 0
         if iterable:
             if isinstance(iterable, (list, tuple, set)):
                 for item in iterable:
