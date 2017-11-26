@@ -18,16 +18,16 @@ class Graph(object):
         for key in self._g:
             if self._g[key]:
                 for value in self._g[key]:
-                    edges.append((key, value))
+                    edges.append((key, value, self._g[key][value]))
         return edges
 
     def add_node(self, val):
         """Add a new node to the graph."""
         if val in self._g:
             raise ValueError('Node already exists.')
-        self._g[val] = []
+        self._g[val] = {}
 
-    def add_edge(self, val1, val2):
+    def add_edge(self, val1, val2, weight=0):
         """Add a new edge to the graph."""
         if val1 not in self._g:
             self.add_node(val1)
@@ -36,15 +36,15 @@ class Graph(object):
         if val2 == val1:
             raise ValueError('Cannot have a self-referential edge.')
         if val2 in self._g[val1]:
-            self._g[val1].remove(val2)
-        self._g[val1].append(val2)
+            del self._g[val1][val2]
+        self._g[val1][val2] = weight
 
     def del_node(self, val):
         """Delete the node containing ‘val’."""
         if val in self._g:
             for node in self._g:
                 if val in self._g[node]:
-                    self._g[node].remove(val)
+                    del self._g[node][val]
             del self._g[val]
         else:
             raise ValueError('{} not in graph'.format(val))
@@ -53,7 +53,7 @@ class Graph(object):
         """Delete an edge from the graph."""
         if val1 in self._g and val2 in self._g:
             if val2 in self._g[val1]:
-                self._g[val1].remove(val2)
+                del self._g[val1][val2]
             else:
                 raise ValueError('Cannot remove non_existent edge.')
         else:
@@ -66,7 +66,7 @@ class Graph(object):
     def neighbors(self, val):
         """Return the list of all node's neighbor nodes."""
         if val in self._g:
-            return self._g[val]
+            return list(self._g[val].keys())
         else:
             raise ValueError('Node not in graph')
 
@@ -101,9 +101,15 @@ class Graph(object):
             if visited_node in visited:
                 continue
             visited.add(visited_node)
-            stack.extend(self._g[visited_node][::-1])
+            stack.extend(list(self._g[visited_node].keys())[::-1])
             set_traversed.append(visited_node)
         return set_traversed
+
+    def dijkstra(self):
+        """Find the shortest path using Dijksta's algorithm."""
+
+    def bellman_ford(self):
+        """Find the shortest path using Bellman-Ford's algorithm."""
 
 if __name__ == '__main__':
     g = Graph()
