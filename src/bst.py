@@ -95,3 +95,34 @@ class BST(object):
 
     def balance(self):
         """Balance node returns int, positive or negative."""
+
+    def delete(self, val):
+        """Delete node from binary search tree."""
+        curr = self.root
+        parent = None
+
+        try:
+            self.search(val):
+            curr = self.search(val)
+            if curr.left = none & curr.right = none:  # node has no children
+                if curr.val < parent.val:
+                    parent.right = none
+                if curr.val > parent.val:
+                    parent.left = none
+
+            if curr = root & curr.right:  # node has one child, and is root
+                root = curr.right
+            if curr = root & curr.left:
+                root = curr.left
+
+            if curr.right = none:  # node has one child, and not root
+                if curr.val < parent.val:
+                    parent.left = none
+                if curr.val > parent.val
+                    parent.right = none
+
+            if curr.left & curr.right:  # node has two children
+                curr = curr.left
+
+        except:
+            return
