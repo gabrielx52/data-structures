@@ -326,3 +326,90 @@ def test_breadth_first_method_returns_empty_gen_with_empty_tree(empty_tree):
     """Test the breadth_first method returns a empty gen with empty tree."""
     breadth_first_gen = empty_tree.breadth_first()
     assert [n for n in breadth_first_gen] == []
+
+
+def test_delete_works_on_leaf_node(full_tree):
+    """Test the delete method deletes a leaf node."""
+    full_tree.delete(2)
+    in_order_gen = full_tree.in_order()
+    assert [n for n in in_order_gen] == [4, 6, 8, 10, 12, 14, 16]
+
+
+def test_delete_works_on_node_with_one_child(full_tree):
+    """Test the delete method deletes a node with one child."""
+    full_tree.delete(16)
+    in_order_gen = full_tree.in_order()
+    assert [n for n in in_order_gen] == [2, 4, 6, 8, 10, 12, 14]
+
+
+def test_delete_works_on_non_root_node_with_two_children(full_tree):
+    """Test the delete method deletes non-root node with two kids."""
+    full_tree.delete(6)
+    in_order_gen = full_tree.in_order()
+    assert [n for n in in_order_gen] == [2, 4, 8, 10, 12, 14, 16]
+
+
+def test_delete_works_on_root(full_tree):
+    """Test the delete method deletes the root."""
+    full_tree.delete(10)
+    in_order_gen = full_tree.in_order()
+    assert [n for n in in_order_gen] == [2, 4, 6, 8, 12, 14, 16]
+
+
+def test_delete_all_of_the_node(full_tree):
+    """Test the delete method deletes all the nodes."""
+    for i in [2, 4, 6, 8, 10, 12, 14, 16]:
+        full_tree.delete(i)
+    in_order_gen = full_tree.in_order()
+    assert [n for n in in_order_gen] == []
+
+
+def test_delete_empty_tree(empty_tree):
+    """Test the delete method on an empty tree."""
+    empty_tree.delete(10)
+    in_order_gen = empty_tree.in_order()
+    assert [n for n in in_order_gen] == []
+
+
+def test_delete_2_empty_tree(empty_tree):
+    """Test the delete_2 method on an empty tree."""
+    empty_tree.delete_2(10)
+    in_order_gen = empty_tree.in_order()
+    assert [n for n in in_order_gen] == []
+
+
+def test_delete_2_works_on_leaf_node(full_tree):
+    """Test the delete_2 method deletes a leaf node."""
+    full_tree.delete_2(2)
+    in_order_gen = full_tree.in_order()
+    assert [n for n in in_order_gen] == [4, 6, 8, 10, 12, 14, 16]
+
+
+def test_delete_2_works_on_node_with_one_left_child_right_side(full_tree):
+    """Test the delete_2 method deletes a node with a left child."""
+    full_tree.delete_2(16)
+    in_order_gen = full_tree.in_order()
+    assert [n for n in in_order_gen] == [2, 4, 6, 8, 10, 12, 14]
+
+
+def test_delete_2_works_on_node_with_one_right_child_right_side(full_tree):
+    """Test the delete_2 method deletes a node with a right child."""
+    full_tree.delete_2(12)
+    in_order_gen = full_tree.in_order()
+    assert [n for n in in_order_gen] == [2, 4, 6, 8, 10, 14, 16]
+
+
+def test_delete_2_works_on_node_with_one_left_child_left_side(full_tree):
+    """Test the delete_2 method deletes a node with a left child."""
+    full_tree.delete_2(4)
+    in_order_gen = full_tree.in_order()
+    assert [n for n in in_order_gen] == [2, 6, 8, 10, 12, 14, 16]
+
+
+def test_delete_2_works_on_node_with_one_right_child_left_side():
+    """Test the delete_2 method deletes a node with a right child."""
+    from bst import BST
+    tree = BST([10, 6, 8, 9, 12, 16, 14])
+    tree.delete_2(6)
+    in_order_gen = tree.in_order()
+    assert [n for n in in_order_gen] == [8, 9, 10, 12, 14, 16]

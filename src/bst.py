@@ -4,11 +4,12 @@
 class Node(object):
     """BST Node object class."""
 
-    def __init__(self, val):
+    def __init__(self, val, parent=None):
         """Constructor method for BST Node."""
         self.val = val
         self.left = None
         self.right = None
+        self.parent = parent
 
 
 class BST(object):
@@ -46,7 +47,7 @@ class BST(object):
                     if current.right:
                         current = current.right
                     else:
-                        current.right = Node(val)
+                        current.right = Node(val, current)
                         self._size += 1
                         self.depth_checker(deep)
                         return
@@ -55,7 +56,7 @@ class BST(object):
                     if current.left:
                         current = current.left
                     else:
-                        current.left = Node(val)
+                        current.left = Node(val, current)
                         self._size += 1
                         self.depth_checker(deep)
                         return
@@ -90,6 +91,10 @@ class BST(object):
                     return current
         except AttributeError:
             return
+
+        # def _search_helper(self, direction=):
+        #     """."""
+        #     pass
 
     def size(self):
         """Return size of BST."""
@@ -163,6 +168,80 @@ class BST(object):
                 current = stack.pop(0)
             else:
                 current = stack.pop(0)
+
+    def delete(self, val):
+        """Delete node containing val from the BST."""
+        current, parent = self._root, None
+        while current and current.val != val:
+            parent = current
+            if val > current.val:
+                current = current.right
+            else:
+                current = current.left
+        if current is None:
+            return
+        tmp = None
+        if current.left and current.right:
+            tmp = self._remove(current)
+            tmp.left = current.left
+            tmp.right = current.right
+        elif current.left is None:
+            tmp = current.right
+        else:
+            tmp = current.left
+
+        if current == self._root:
+            self._root = tmp
+        elif parent.left == current:
+            parent.left = tmp
+        else:
+            parent.right = tmp
+
+        return
+
+    def _remove(self, node):
+        """Remove child node."""
+        current, parent = node.right, node
+        while current.left:
+            parent = current
+            current = current.left
+        if current == parent.right:
+            parent.right = current.right
+        else:
+            parent.left = current.right
+        return current
+
+    def delete_2(self, val):
+        """Delete method for BST."""
+        target = self.search(val)
+        if target:
+            if target.right and target.left:
+                self._parent_remover_twins(target)
+            elif target.right:
+                self._parent_remover(target, target.right)
+            elif target.left:
+                self._parent_remover(target, target.left)
+            else:
+                self._parent_remover(target)
+                target.parent = None
+        else:
+            return
+
+    def _parent_remover(self, target, child=None):
+        """Remove node with one or no children."""
+        if target.val < target.parent.val:
+            target.parent.left = child
+            if child:
+                child.parent = target.parent.left
+        else:
+            target.parent.right = child
+            if child:
+                child.parent = target.parent.left
+
+    def _parent_remover_twins(self, target):
+        """Remove node with two children."""
+        pass
+
 
 if __name__ == '__main__':  # pragma: no cover
     import timeit as ti
