@@ -9,10 +9,11 @@ Language
 class Node(object):
     """Node for binary search tree data structure."""
 
-    def __init__(self, val):
+    def __init__(self, val, parent=None):
         """Initialize node for binary search tree."""
         self.left = None
         self.right = None
+        self.parent = parent
         self.val = val
 
 
@@ -40,14 +41,14 @@ class BST(object):
                     if curr.right:
                         curr = curr.right
                     else:
-                        curr.right = Node(val)
+                        curr.right = Node(val, curr)
                         self._size += 1
                         return
                 if val < curr.val:
                     if curr.left:
                         curr = curr.left
                     else:
-                        curr.left = Node(val)
+                        curr.left = Node(val, curr)
                         self._size += 1
                         return
                 if val == curr.val:
@@ -77,7 +78,6 @@ class BST(object):
                 elif val == curr.val:
                     return curr
 
-
     def size(self):
         """Return the size of BST."""
         return self._size
@@ -98,31 +98,62 @@ class BST(object):
 
     def delete(self, val):
         """Delete node from binary search tree."""
-        curr = self.root
-        parent = None
+        curr = self.search(val)  # curr = node to delete
+        parent = self.parent
 
-        try:
-            self.search(val):
-            curr = self.search(val)
-            if curr.left = none & curr.right = none:  # node has no children
-                if curr.val < parent.val:
-                    parent.right = none
-                if curr.val > parent.val:
-                    parent.left = none
+        if not curr.left and not curr.right:  # node has no children
+            if curr.val < parent.val:
+                parent.left = None
+            if curr.val > parent.val:
+                parent.right = None
+            if curr == self.root:
+                self.root = None
+                return
 
-            if curr = root & curr.right:  # node has one child, and is root
-                root = curr.right
-            if curr = root & curr.left:
-                root = curr.left
+        if not curr.right:  # node has one child
+            if curr.val < parent.val:
+                parent.left = curr.left
+                curr.left.parent = curr.parent
 
-            if curr.right = none:  # node has one child, and not root
-                if curr.val < parent.val:
-                    parent.left = none
-                if curr.val > parent.val
-                    parent.right = none
+        if not curr.left:  # node has one child
+            if curr.val > parent.val:
+                parent.right = curr.right
+                curr.right.parent = curr.parent
 
-            if curr.left & curr.right:  # node has two children
-                curr = curr.left
+        if curr == self.root:
+            if not curr.right:
+                self.root = curr.left
+                return
 
-        except:
-            return
+        if curr.left and curr.right:  # node has two children
+            target = curr.left
+            while target:
+                if target.right:
+                    target = target.right
+                else:
+                    break
+            if curr.left.parent = curr:  # if the node is one away
+                target.parent = curr.parent
+                target.right = curr.right
+                target.right.parent = target
+            if curr.parent:
+                if curr.parent.val > curr.val:
+                    curr.parent.left = target
+                if curr.parent.val < curr.val:
+                    curr.parent.right = target
+                else:
+                    self.root = target
+
+            elif target.left:  # target node has one child
+                target.parent.right = target.left
+                target.left.parent = target.parent
+                target.right = curr.right
+                target.left = curr.left
+                target.parent = curr.parent
+                target.right.parent = target
+                target.left.parent = target
+            else:
+                target.parent = None  # target node has no children
+                target.parent = curr.parent
+                target.left = curr.left
+                target.right = curr.right
