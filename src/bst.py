@@ -132,7 +132,7 @@ class BST(object):
                     target = target.right
                 else:
                     break
-            if curr.left.parent = curr:  # if the node is one away
+            if curr.left.parent == curr:  # if the node is one away
                 target.parent = curr.parent
                 target.right = curr.right
                 target.right.parent = target
