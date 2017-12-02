@@ -44,15 +44,32 @@ class HashTable:
     def get_key(self, key):
       """."""
       startbucket = self.hashfunction(key, len(self.buckets))
+      data = None
+      stop = False
+      found = False
+      position = startbucket
+      while self.buckets[position] != None and \
+            not found and not stop:
+        if self.buckets[position] == key:
+          found = True
+          data = self.data[position]
+        else:
+          position = self.rehash(position, len(self.buckets))
+          if position == startbucket:
+            stop = True
+      return data
 
-    def set_key(self, val):
-      """."""
+      def get_item(self, key):
+        return self.get(key)
 
-    def hash(self, key, size):
-      return key%size
+      def set_item(self, key, data):
+        return self.set(key, data)
 
-    def rehash(self, oldhash, size):
-      return (oldhash+1)%size
+      def hash(self, key, size):
+        return key%size
+
+      def rehash(self, oldhash, size):
+        return (oldhash+1)%size
 
 
 def DJBHash(key):  # pragma no cover
