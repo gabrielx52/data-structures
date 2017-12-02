@@ -1,17 +1,21 @@
 """Implement two hash tables, one additive and another of choice.\
 
-Examples found in http://www.partow.net/programming/hashfunctions/\"""
+Examples found in http://www.partow.net/programming/hashfunctions/\
 
+https://www.quora.com/How-do-I-create-my-own-hash-table-implementation-in-Python\"""
+
+table = [[] for x in range(10)]
 
 class HashTable:
     """Build HashTable class."""
     def __init__(self):
-        self.m
+      self.table = table
+
+    def
 
 
 
-
-def DJBHash(key):
+def DJBHash(key):  # pragma no cover
     """Additive Hash produced by D.J. Bernstein originally pub usenet newsgroup."""
     hash = 5381
     for i in range(len(key)):
@@ -19,7 +23,7 @@ def DJBHash(key):
     return hash
 
 
-def ELFHash(key):
+def ELFHash(key):  # pragma no cover
     """Hash function, widely used in unix based systems, 32 bit processors."""
     hash = 0
     x    = 0
@@ -31,4 +35,4 @@ def ELFHash(key):
       hash &= ~x
     return hash
 
-
+"""initialize a table of zeros."""
