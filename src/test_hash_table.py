@@ -15,3 +15,10 @@ def test_hash_table_size():
     from hash_table import HashTable
     h = HashTable(11, 1)
     assert h.size == 11
+
+
+def test_hash_table_bucket_number():
+    """Test number of buckets in hashTable."""
+    from hash_table import HashTable
+    h = HashTable(11, 1)
+    assert h.buckets == [[], [], [], [], [], [], [], [], [], [], []]
