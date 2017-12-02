@@ -28,8 +28,17 @@ class HashTable:
         if self.buckets[hashvalue] == key:
           self.data[hashvalue] == data
         else:
-          nextslot = self.rehash
+          nextslot = self.rehash(hashvalue, len(self.buckets))
+          while self.buckets[nextslot] != None and \
+            self.buckets[nextslot] != key:
+            nextslot = self.rehash(nextslot, len(self.buckets))
 
+          if self.buckets[nextslot] = None:
+            self.buckets[nextslot] = key
+            self.buckets[nextslot] = data
+
+          else:
+            self.data[nextslot] = data
 
 
     def get_key(self):
