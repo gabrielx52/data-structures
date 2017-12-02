@@ -4,26 +4,40 @@ Examples found in http://www.partow.net/programming/hashfunctions/\
 
 https://www.quora.com/How-do-I-create-my-own-hash-table-implementation-in-Python\"""
 
-table = [[] for x in range(1024)]
+foo = [[] for x in range(1024)]
 
 class HashTable:
     """Build HashTable class."""
-    def __init__(self, key, value):
-      self.size = 1024
+    def __init__(self, size, buckets, data):
+      self.size = size
       self.buckets = [None] * self.size
       self.data = [None] * self.size
 
 
 
-    def insert(self, table, input, value):
+    def set(self, key, data):
       """Insert value in table."""
-      table[DJBHash(input)].append(value)
+      # table[DJBHash(input)].append(data)
+      hashvalue = self.hashfunction(key, len(self.buckets))
+
+      if self.buckets[hashvalue] == None:
+        self.buckets[hashvalue] == key
+        self.data == data
+
+      else:
+        if self.buckets[hashvalue] == key:
+          self.data[hashvalue] == data
+        else:
+          nextslot = self.rehash
+
+
 
     def get_key(self):
       """."""
 
     def set_key(self, val):
       """."""
+
 
 
 def DJBHash(key):  # pragma no cover
@@ -46,4 +60,8 @@ def ELFHash(key):  # pragma no cover
       hash &= ~x
     return hash
 
-"""initialize a table of zeros."""
+def hash(self, key, size):
+  return key%size
+
+def rehash(self, oldhash, size):
+  return (oldhash+1)%size
