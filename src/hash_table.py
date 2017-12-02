@@ -8,7 +8,7 @@ www.quora.com/How-do-I-create-my-own-hash-table-implementation-in-Python."""
 class HashTable:
     """Build HashTable class."""
 
-    def __init__(self, hash, size):
+    def __init__(self, size, hash_func=naive_hash):
         """."""
         self.buckets = []
         self.size = size
@@ -32,6 +32,13 @@ class HashTable:
         """Hash the key provided."""
         return hash(key)
 
+    def naive_hash(value):
+        if value is not str:
+            raise TypeError("Need to pass a word into the hash, i.e. a string")
+        hash_val = 0
+        for letter in value:
+            hash_val += ord(letter)
+        return hash_val % self.size
 
 
     def set(self, key, data):
