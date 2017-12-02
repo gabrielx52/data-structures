@@ -8,10 +8,13 @@ table = [[] for x in range(10)]
 
 class HashTable:
     """Build HashTable class."""
-    def __init__(self):
-      self.table = table
+    def __init__(self, key, value):
+      self.key = key
+      self.value = value
 
-    def
+    def insert(table, input, value):
+      """."""
+      table[DJBHash(input)].append(value)
 
 
 
