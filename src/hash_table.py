@@ -28,25 +28,31 @@ class HashTable:
         if self.buckets[hashvalue] == key:
           self.data[hashvalue] == data
         else:
-          nextslot = self.rehash(hashvalue, len(self.buckets))
-          while self.buckets[nextslot] != None and \
-            self.buckets[nextslot] != key:
-            nextslot = self.rehash(nextslot, len(self.buckets))
+          nextbucket = self.rehash(hashvalue, len(self.buckets))
+          while self.buckets[nextbucket] != None and \
+            self.buckets[nextbucket] != key:
+            nextbucket = self.rehash(nextbucket, len(self.buckets))
 
-          if self.buckets[nextslot] = None:
-            self.buckets[nextslot] = key
-            self.buckets[nextslot] = data
+          if self.buckets[nextbucket] = None:
+            self.buckets[nextbucket] = key
+            self.buckets[nextbucket] = data
 
           else:
-            self.data[nextslot] = data
+            self.data[nextbucket] = data
 
 
-    def get_key(self):
+    def get_key(self, key):
       """."""
+      startbucket = self.hashfunction(key, len(self.buckets))
 
     def set_key(self, val):
       """."""
 
+    def hash(self, key, size):
+      return key%size
+
+    def rehash(self, oldhash, size):
+      return (oldhash+1)%size
 
 
 def DJBHash(key):  # pragma no cover
@@ -68,9 +74,3 @@ def ELFHash(key):  # pragma no cover
         hash ^= (x >> 24)
       hash &= ~x
     return hash
-
-def hash(self, key, size):
-  return key%size
-
-def rehash(self, oldhash, size):
-  return (oldhash+1)%size
