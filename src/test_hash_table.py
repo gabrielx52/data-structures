@@ -2,8 +2,9 @@
 
 import pytest
 
-def test Hashtable():
+
+def test_hash_table():
     """test is HashTable an instance."""
     from hash_table import HashTable
-    h = HashTable(hash, 1)
-    assert h is isinstance(HashTable)
+    h = HashTable(11, 1)
+    assert isinstance(h, HashTable)
