@@ -105,6 +105,14 @@ gen = tree.breadth_first()
 
 Big O runtime: O(n)
 
+### Delete node from BST
+```
+tree = BST([10, 12, 16, 6, 8, 4, 14, 2])
+tree.delete(2)
+```
+
+Big O runtime: O(logn)
+
 ## Graph
 
 ### Make a Graph
