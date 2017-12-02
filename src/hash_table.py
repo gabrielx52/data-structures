@@ -4,18 +4,26 @@ Examples found in http://www.partow.net/programming/hashfunctions/\
 
 https://www.quora.com/How-do-I-create-my-own-hash-table-implementation-in-Python\"""
 
-table = [[] for x in range(10)]
+table = [[] for x in range(1024)]
 
 class HashTable:
     """Build HashTable class."""
     def __init__(self, key, value):
-      self.key = key
-      self.value = value
+      self.size = 1024
+      self.buckets = [None] * self.size
+      self.data = [None] * self.size
 
-    def insert(table, input, value):
-      """."""
+
+
+    def insert(self, table, input, value):
+      """Insert value in table."""
       table[DJBHash(input)].append(value)
 
+    def get_key(self):
+      """."""
+
+    def set_key(self, val):
+      """."""
 
 
 def DJBHash(key):  # pragma no cover
