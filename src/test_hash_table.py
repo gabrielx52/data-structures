@@ -27,7 +27,6 @@ def test_hash_table_bucket_number():
 def test_set_appends_key_value():
     """Test set method sets key and value."""
     from hash_table import HashTable
-    import pdb; pdb.set_trace()
-
-    h = HashTable(11, 1)
-    assert h.set('jackie', 'robinson') ==
+    h = HashTable(11)
+    h.set('jackie', 'robinson')
+    assert h.buckets == [[], [], [], [], [], [], [], [], [], [], [('jackie', 'robinson')]]
