@@ -10,6 +10,8 @@ class Deque(object):
         """Init new deque instance."""
         self._deque = DoublyLinkedList()
 
+
+
     def append(self, val):
         """Add item to right end of deque."""
         self._deque.append(val)
