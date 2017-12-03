@@ -17,12 +17,12 @@ def naive_hash(value, size):
         return hash_val % size
 
 
-def DJBHash(key):  # pragma no cover
+def djb_hash(value, size):  # pragma no cover
         """Hash produced by D.J. Bernstein originally pub usenet newsgroup."""
         hash = 5381
-        for i in range(len(key)):
-            hash = ((hash << 5) + hash) + ord(key[i])
-        return hash
+        for i in range(len(value)):
+            hash = ((hash << 5) + hash) + ord(value[i])
+        return hash % size
 
 
 class HashTable(object):
