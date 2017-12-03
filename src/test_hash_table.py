@@ -39,3 +39,12 @@ def test_set_appends_overrides_initial_value():
     h.set('jackie', 'robinson')
     h.set('jackie', 'murray')
     assert h.buckets == [[], [], [], [], [], [], [], [], [], [], [('jackie', 'murray')]]
+
+
+def test_get_returns_key():
+    """Test get returns the key."""
+    from hash_table import HashTable
+    h = HashTable(11)
+    h.set('jackie', 'robinson')
+    h.set('jackie', 'murray')
+    assert h.buckets[11] == 'jackie'
