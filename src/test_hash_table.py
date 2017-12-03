@@ -30,3 +30,12 @@ def test_set_appends_key_value():
     h = HashTable(11)
     h.set('jackie', 'robinson')
     assert h.buckets == [[], [], [], [], [], [], [], [], [], [], [('jackie', 'robinson')]]
+
+
+def test_set_appends_overrides_initial_value():
+    """Test set method overrides another value."""
+    from hash_table import HashTable
+    h = HashTable(11)
+    h.set('jackie', 'robinson')
+    h.set('jackie', 'murray')
+    assert h.buckets == [[], [], [], [], [], [], [], [], [], [], [('jackie', 'murray')]]

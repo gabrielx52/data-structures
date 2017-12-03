@@ -33,12 +33,12 @@ class HashTable(object):
         hash_key = self._hash(key)
         if self.buckets[hash_key] == []:
             self.buckets[hash_key].append((key, value))
-
-        # for item in range(len(self.buckets[hash_key]):
-        #     if self.buckets[hash_key][item][0] == key:
-
-        #         item = (key, value)
-        # self.buckets[hash_key].append((key, value))
+        else:
+            for item in range(len(self.buckets[hash_key])):
+                if self.buckets[hash_key][item][0] == key:
+                    self.buckets[hash_key][item] = (key, value)
+                else:
+                    self.buckets[hash_key].append((key, value))
 
     # def get(self, key):
     #     """Return value stored in the given key."""
