@@ -17,6 +17,14 @@ def naive_hash(value, size):
         return hash_val % size
 
 
+def DJBHash(key):  # pragma no cover
+        """Hash produced by D.J. Bernstein originally pub usenet newsgroup."""
+        hash = 5381
+        for i in range(len(key)):
+            hash = ((hash << 5) + hash) + ord(key[i])
+        return hash
+
+
 class HashTable(object):
     """Build HashTable class."""
 
@@ -40,25 +48,20 @@ class HashTable(object):
                 else:
                     self.buckets[hash_key].append((key, value))
 
-    # def get(self, key):
-    #     """Return value stored in the given key."""
-    #     hash_bucket = self._hash(key)
-    #     for word_string in hash_bucket:
-    #         if word_string[0] == key[1]:
-    #             return key
-    #     return None
+    def get(self, key):
+        """Return value stored in the given key."""
+        hash_bucket = self._hash(key)
+        if self.buckets[hash_bucket]:
+            for item in self.buckets[hash_bucket]:
+                if item[0] == key:
+                    return item[1]
+        else:
+            return None
 
     def _hash(self, key):
         """Hash the key provided."""
         return self.hash_func(key, self.size)
 
-
-    # def DJBHash(key):  # pragma no cover
-    #     """Additive Hash produced by D.J. Bernstein originally pub usenet newsgroup."""
-    #     hash = 5381
-    #     for i in range(len(key)):
-    #         hash = ((hash << 5) + hash) + ord(key[i])
-    #     return hash
 
 
     # def ELFHash(key):  # pragma no cover
