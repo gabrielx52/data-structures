@@ -41,10 +41,18 @@ def test_set_appends_overrides_initial_value():
     assert h.buckets == [[], [], [], [], [], [], [], [], [], [], [('jackie', 'murray')]]
 
 
-def test_get_returns_key():
+def test_set_returns_key():
     """Test get returns the key."""
     from hash_table import HashTable
     h = HashTable(11)
     h.set('jackie', 'robinson')
     h.set('jackie', 'murray')
-    assert h.buckets[11] == 'jackie'
+    assert h.get('jackie') == 'murray'
+
+
+def test_get_returns_val():
+    """Test get returns the None if no value present."""
+    from hash_table import HashTable
+    h = HashTable(11)
+    h.set('jackie', 'murray')
+    assert h.get('jackie') == 'murray'
