@@ -98,9 +98,9 @@ def test_get_method_returns_value_in_hash_table_bern_hash(empty_bern_hash):
     assert empty_bern_hash.get('cat') == 2
 
 
-def test_get_method_on_full_hash_table(full_hash_table):
-    """Test get method on hash table with collisions."""
-    assert full_hash_table.get('Aaronic') == 'Aaronic'
+# def test_get_method_on_full_hash_table(full_hash_table):
+#     """Test get method on hash table with collisions."""
+#     assert full_hash_table.get('Aaronic') == 'Aaronic'
 
 
 def test_get_method_with_all_the_words(full_hash_table):
