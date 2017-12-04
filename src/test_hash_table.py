@@ -22,7 +22,7 @@ def full_hash_table():
     from hash_table import HashTable
     ht = HashTable()
     with open('/usr/share/dict/words', 'r') as words:
-        word_list = words.readlines()[:1000]
+        word_list = words.readlines()[:100]
     for word in word_list:
         ht.set(word.strip(), word.strip())
     return ht
@@ -100,13 +100,13 @@ def test_get_method_returns_value_in_hash_table_bern_hash(empty_bern_hash):
 
 def test_get_method_on_full_hash_table(full_hash_table):
     """Test get method on hash table with collisions."""
-    assert full_hash_table.get('abed') == 'abed'
+    assert full_hash_table.get('Aaronic') == 'Aaronic'
 
 
 def test_get_method_with_all_the_words(full_hash_table):
     """Test all the words are in the full hash table."""
     with open('/usr/share/dict/words', 'r') as words:
-        word_list = words.readlines()[:1000]
+        word_list = words.readlines()[:100]
     for word in word_list:
         assert full_hash_table.get(word.strip()) == word.strip()
 
