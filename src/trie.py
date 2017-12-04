@@ -5,9 +5,9 @@ import pdb
 
 class Node(object):
     """Create node object."""
-    def __init___(self, character, parent):
+    def __init___(self, parent):
         """Node object on initialization."""
-        self.character = character
+        self.child = [None] * 26
         self.parent = parent
         self.terminus = False
 
@@ -16,19 +16,17 @@ class Trie(object):
 
     def __init__(self):
         """Initialize the trie tree."""
-        self.root = Node(None, None)
-        self.structure = {}  # everything off root
+        self.root = Node(None)
+        self.nodes = {}  # everything off root
         self.size = 0
 
     def insert(self, word):
         """Insert input string into trie; ignore, if char already present."""
-        if not word:
-            return
-        current_node = self.root
+        current_node = Node(word)
+        if current_node
 
 
-        if head in self.structure:
-            head
+
 
     def contains(self, string):
         """Return True if in string; False if not."""
