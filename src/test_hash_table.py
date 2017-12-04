@@ -73,9 +73,16 @@ def test_get_method_on_full_hash_table(full_hash_table):
     assert full_hash_table.get('abed') == 'abed'
 
 
-# def test_set_and_get_method_with_all_the_words(full_hash_table):
-#     """Test all the words are in the full hash table."""
-#     with open('/usr/share/dict/words', 'r') as words:
-#         word_list = words.readlines()
-#     for word in word_list:
-#         assert full_hash_table.get(word.strip()) == word.strip()
+def test_get_method_with_all_the_words(full_hash_table):
+    """Test all the words are in the full hash table."""
+    with open('/usr/share/dict/words', 'r') as words:
+        word_list = words.readlines()
+    for word in word_list:
+        assert full_hash_table.get(word.strip()) == word.strip()
+
+
+def test_add_duplicate_key_overwrite_previous_value(empty_hash_table):
+    """Test when a key is inserted twice it will overwrite previous value."""
+    empty_hash_table.set('cat', 1)
+    empty_hash_table.set('cat', 'meow')
+    assert empty_hash_table.get('cat') == 'meow'

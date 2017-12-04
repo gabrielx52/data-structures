@@ -21,7 +21,11 @@ class HashTable(object):
         """Store value in hashed key bucket."""
         if isinstance(key, str):
             key_hash = self._hash(key)
-            self.hash_table[key_hash].append([key, value])
+            for item in self.hash_table[key_hash]:
+                if item[0] == key:
+                    item[1] = value
+            else:
+                self.hash_table[key_hash].append([key, value])
         else:
             raise TypeError('Key must be a string.')
 
