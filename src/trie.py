@@ -3,17 +3,30 @@
 import pdb
 
 
+class Node(object):
+    """Create node object."""
+    def __init___(self, character, parent):
+        """Node object on initialization."""
+        self.character = character
+        self.parent = parent
+        self.terminus = False
+
 class Trie(object):
     """Trie class."""
 
     def __init__(self):
-        """Initialize trie node."""
+        """Initialize the trie tree."""
+        self.root = Node(None, None)
         self.structure = {}  # everything off root
-        self.size = 0  # size of the tree
+        self.size = 0
 
-    def insert(self, string):
+    def insert(self, word):
         """Insert input string into trie; ignore, if char already present."""
-        head = string[0]
+        if not word:
+            return
+        current_node = self.root
+
+
         if head in self.structure:
             head
 
