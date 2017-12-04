@@ -20,7 +20,9 @@ class Trie(object):
     def contains(self, string):
         """Return True if in string; False if not."""
         try:
-            return self.
+            return self[string]
+        except KeyError:
+            print('The word is not in your trie tree')
 
     def size(self):
         """Return total number of words in trie; 0 if empty."""
