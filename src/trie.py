@@ -1,5 +1,7 @@
 """Implement trie tree data structure."""
 
+import pdb
+
 
 class Trie(object):
     """Trie class."""
@@ -11,9 +13,14 @@ class Trie(object):
 
     def insert(self, string):
         """Insert input string into trie; ignore, if char already present."""
+        head = string[0]
+        if head in self.structure:
+            head
 
     def contains(self, string):
         """Return True if in string; False if not."""
+        try:
+            return self.
 
     def size(self):
         """Return total number of words in trie; 0 if empty."""
