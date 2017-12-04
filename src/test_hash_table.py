@@ -22,7 +22,7 @@ def full_hash_table():
     from hash_table import HashTable
     ht = HashTable()
     with open('/usr/share/dict/words', 'r') as words:
-        word_list = words.readlines()[:100]
+        word_list = words.readlines()
     for word in word_list:
         ht.set(word.strip(), word.strip())
     return ht
@@ -106,7 +106,7 @@ def test_get_method_on_full_hash_table(full_hash_table):
 def test_get_method_with_all_the_words(full_hash_table):
     """Test all the words are in the full hash table."""
     with open('/usr/share/dict/words', 'r') as words:
-        word_list = words.readlines()[:100]
+        word_list = words.readlines()
     for word in word_list:
         assert full_hash_table.get(word.strip()) == word.strip()
 
