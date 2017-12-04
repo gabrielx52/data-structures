@@ -7,7 +7,10 @@ class HashTable(object):
     def __init__(self, size=1024, hash_func='additive'):
         """Constructor method for hash table."""
         self.size = size
-        self.hash_func = hash_func
+        if hash_func not in ('additive', 'bern'):
+            raise ValueError('Not a recognized hash.')
+        else:
+            self.hash_func = hash_func
         self.hash_table = [[] for i in range(size)]
 
     def get(self, key):
@@ -33,10 +36,19 @@ class HashTable(object):
         """Hashing method."""
         if self.hash_func == 'additive':
             return self._additive_hash(key)
+        if self.hash_func == 'bern':
+            return self._bern_hash(key)
 
     def _additive_hash(self, key):
         """Additive hash method."""
         hash_val = 0
         for i in key:
             hash_val += ord(i)
+        return hash_val % self.size
+
+    def _bern_hash(self, key):
+        """Bernstein hash method."""
+        hash_val = 15053
+        for i in key:
+            hash_val = ((hash_val << 5) + hash_val) + ord(i)
         return hash_val % self.size
