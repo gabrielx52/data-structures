@@ -15,12 +15,11 @@ class TrieTree(object):
             raise TypeError('Input must be a string.')
         if self.contains(string):
             raise ValueError('Cannot insert duplicate words in tree.')
-        else:
-            self._size += 1
-            current = self.root
-            for letter in string:
-                current = current.setdefault(letter, {})
-            current['$'] = '$'
+        self._size += 1
+        current = self.root
+        for letter in string:
+            current = current.setdefault(letter, {})
+        current['$'] = '$'
 
     def contains(self, string):
         """Return bool if string in Trie tree."""
