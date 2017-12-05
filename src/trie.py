@@ -23,7 +23,11 @@ class Trie(object):
     def insert(self, word):
         """Insert input string into trie; ignore, if char already present."""
         current_node = Node(word)
-        if current_node
+            while current_node[0]:
+                if current_node[0] is not self.root.child:
+                    current_node[0] = self.child
+                    for letter in range(current_node[1:]):
+                        self.nodes[letter] =
 
 
 
