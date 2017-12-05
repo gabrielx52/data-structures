@@ -7,21 +7,34 @@ class Node(object):
     """Create node object."""
     def __init___(self, parent):
         """Node object on initialization."""
-        self.child = [None] * 26
+        self.children = [None] * 26
         self.parent = parent
         self.terminus = False
+
 
 class Trie(object):
     """Trie class."""
 
     def __init__(self):
         """Initialize the trie tree."""
-        self.root = Node(None)
-        self.nodes = {}  # everything off root
+        self.nodes = {}  # word off root
         self.size = 0
 
     def insert(self, word):
         """Insert input string into trie; ignore, if char already present."""
+        root = Node(None)
+        for char in range(word):
+            current_node = Node(char)
+            if current_node not in current_node.children
+                self.nodes[current_node] = current_node.children
+
+            elif current_node is root.child:
+                self.nodes[current_node.child]
+
+            if current_node is root.child:
+                current_node = ()
+
+
         current_node = Node(word)
             while current_node[0]:
                 if current_node[0] is not self.root.child:
