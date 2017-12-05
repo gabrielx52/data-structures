@@ -8,6 +8,46 @@
 ## Overview
 Sample code for classic data structures
 
+## Trie Tree
+
+### Create Trie Tree
+```
+from trie import TrieTree
+tt = TrieTree()
+```
+
+Big O runtime: O(1)
+
+### Insert into Trie Tree
+```
+tt.insert('Guido')
+```
+
+Big O runtime: O(m)
+
+### Check for inclusion in Trie Tree
+```
+tt.contains('Guido')
+True
+```
+
+Big O runtime: O(m)
+
+### Size of Trie Tree
+```
+tt.size()
+1
+```
+
+Big O runtime: O(1)
+
+### Remove from Trie Tree
+```
+tt.remove('Guido')
+```
+
+Big O runtime: O(m!)
+
 ## Hash Table
 
 ### Create Hash Table
