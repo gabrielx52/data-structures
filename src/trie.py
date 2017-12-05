@@ -17,15 +17,21 @@ class Trie(object):
 
     def __init__(self):
         """Initialize the trie tree."""
-        self.nodes = {}  # word off root
         self.size = 0
+        self.root = Node(None)
 
     def insert(self, word):
         """Insert input string into trie; ignore, if char already present."""
-        root = Node(None)
+        current = self.root
         for char in range(word):
             current_node = Node(char)
-            if current_node not in current_node.children
+            if current_node not in self.root.children:
+                current_node.children = self.nodes[root] = current_node
+
+            elif current_node in root.children:
+                current_node.children = self.nodes[current_node[char]] = current_node
+
+            if current_node not in current_node.children:
                 self.nodes[current_node] = current_node.children
 
             elif current_node is root.child:
@@ -33,17 +39,6 @@ class Trie(object):
 
             if current_node is root.child:
                 current_node = ()
-
-
-        current_node = Node(word)
-            while current_node[0]:
-                if current_node[0] is not self.root.child:
-                    current_node[0] = self.child
-                    for letter in range(current_node[1:]):
-                        self.nodes[letter] =
-
-
-
 
     def contains(self, string):
         """Return True if in string; False if not."""
