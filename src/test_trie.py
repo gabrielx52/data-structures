@@ -29,4 +29,4 @@ def test_insert_dict():
     from trie import Trie, Node
     t = Trie()
     t.insert('apple')
-    assert t.size == 1
+    assert t.count == 5
