@@ -5,9 +5,10 @@ import pdb
 
 class Node(object):
     """Create node object."""
+
     def __init___(self, parent):
         """Node object on initialization."""
-        self.children = [None] * 26
+        self.children = None
         self.parent = parent
         self.terminus = False
 
@@ -23,22 +24,16 @@ class Trie(object):
     def insert(self, word):
         """Insert input string into trie; ignore, if char already present."""
         current = self.root
-        for char in range(word):
-            current_node = Node(char)
-            if current_node not in self.root.children:
-                current_node.children = self.nodes[root] = current_node
-
-            elif current_node in root.children:
-                current_node.children = self.nodes[current_node[char]] = current_node
-
-            if current_node not in current_node.children:
-                self.nodes[current_node] = current_node.children
-
-            elif current_node is root.child:
-                self.nodes[current_node.child]
-
-            if current_node is root.child:
-                current_node = ()
+        count = 0
+        for letter in range(word):
+            if letter not in current.children:
+                new = Node(letter)
+                new.parent = current
+                current.children[letter] = new
+                current = new
+                count += 1
+        current.terminus = True
+        self.size += 1
 
     def contains(self, string):
         """Return True if in string; False if not."""
@@ -49,6 +44,8 @@ class Trie(object):
 
     def size(self):
         """Return total number of words in trie; 0 if empty."""
+        return self.count
 
     def remove(self, string):
         """Remove given string from trie; raise exception if not present."""
+        pass
