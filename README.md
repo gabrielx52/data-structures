@@ -8,6 +8,32 @@
 ## Overview
 Sample code for classic data structures
 
+## Hash Table
+
+### Create Hash Table
+```
+from hash_table import HashTable
+ht = HashTable()
+```
+
+Big O runtime: O(1)
+
+### Insert item in Hash Table
+```
+ht.set('Guido', 12)
+```
+
+Big O runtime: O(1)
+
+### Get item in Hash Table
+```
+ht.get('Guido')
+12
+```
+
+Big O runtime: O(1)
+
+
 ## Binary Search Tree
 
 ### Create BST
