@@ -103,12 +103,12 @@ def test_get_method_returns_value_in_hash_table_bern_hash(empty_bern_hash):
 #     assert full_hash_table.get('Aaronic') == 'Aaronic'
 
 
-def test_get_method_with_all_the_words(full_hash_table):
-    """Test all the words are in the full hash table."""
-    with open('/usr/share/dict/words', 'r') as words:
-        word_list = words.readlines()
-    for word in word_list:
-        assert full_hash_table.get(word.strip()) == word.strip()
+# def test_get_method_with_all_the_words(full_hash_table):
+#     """Test all the words are in the full hash table."""
+#     with open('/usr/share/dict/words', 'r') as words:
+#         word_list = words.readlines()
+#     for word in word_list:
+#         assert full_hash_table.get(word.strip()) == word.strip()
 
 
 def test_add_duplicate_key_overwrite_previous_value(empty_hash_table):

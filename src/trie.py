@@ -7,13 +7,20 @@ class TrieTree(object):
     def __init__(self):
         """Constructor method."""
         self.root = {}
+        self._size = 0
 
     def insert(self, string):
         """Insert string into Trie tree."""
-        current = self.root
-        for l in string:
-            current = current.setdefault(l, {})
-        current['$'] = '$'
+        if not isinstance(string, str):
+            raise TypeError('Input must be a string.')
+        if self.contains(string):
+            raise ValueError('Cannot insert duplicate words in tree.')
+        else:
+            self._size += 1
+            current = self.root
+            for l in string:
+                current = current.setdefault(l, {})
+            current['$'] = '$'
 
     def contains(self, string):
         """Return bool if string in Trie tree."""
@@ -31,6 +38,21 @@ class TrieTree(object):
 
     def size(self):
         """Return size of Trie tree."""
+        return self._size
 
     def remove(self, string):
         """Remove string from Trie tree."""
+        if self.contains(string):
+            self._size -= 1
+            tmp = self.root
+            tmp_str = list(string)
+            for i in range(len(string)):
+                for l in tmp_str:
+                    if tmp[l] == {'$': '$'} or tmp[l] == {}:
+                        del tmp[l]
+                        tmp_str.pop()
+                    else:
+                        tmp = tmp[l]
+                tmp = self.root
+        else:
+            raise ValueError('String not in tree.')
