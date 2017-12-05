@@ -22,3 +22,11 @@ def test_init_trie_object_():
     from trie import Trie
     t = Trie()
     assert t.structure == {}
+
+
+def test_insert_dict():
+    """Test insert a string."""
+    from trie import Trie, Node
+    t = Trie()
+    t.insert('apple')
+    assert t.size == 1
