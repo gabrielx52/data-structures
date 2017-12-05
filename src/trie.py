@@ -33,8 +33,7 @@ class TrieTree(object):
         else:
             if '$' in current:
                 return True
-            else:
-                return False
+            return False
 
     def size(self):
         """Return size of Trie tree."""
