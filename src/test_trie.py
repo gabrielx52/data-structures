@@ -94,3 +94,11 @@ def test_size_correct_with_remove_method(empty_trie_tree):
     assert empty_trie_tree.size() == 2
     empty_trie_tree.remove('gabe')
     assert empty_trie_tree.size() == 1
+
+
+def test_insert_delete_insert(empty_trie_tree):
+    """Test insert and delete one item and insert new item."""
+    empty_trie_tree.insert('guido')
+    empty_trie_tree.remove('guido')
+    empty_trie_tree.insert('gabe')
+    assert empty_trie_tree.contains('gabe')
