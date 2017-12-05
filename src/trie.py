@@ -18,16 +18,16 @@ class TrieTree(object):
         else:
             self._size += 1
             current = self.root
-            for l in string:
-                current = current.setdefault(l, {})
+            for letter in string:
+                current = current.setdefault(letter, {})
             current['$'] = '$'
 
     def contains(self, string):
         """Return bool if string in Trie tree."""
         current = self.root
-        for l in string:
-            if l in current:
-                current = current[l]
+        for letter in string:
+            if letter in current:
+                current = current[letter]
             else:
                 return False
         else:
@@ -47,12 +47,12 @@ class TrieTree(object):
             tmp = self.root
             tmp_str = list(string)
             for i in range(len(string)):
-                for l in tmp_str:
-                    if tmp[l] == {'$': '$'} or tmp[l] == {}:
-                        del tmp[l]
+                for letter in tmp_str:
+                    if tmp[letter] in ({'$': '$'}, {}):
+                        del tmp[letter]
                         tmp_str.pop()
                     else:
-                        tmp = tmp[l]
+                        tmp = tmp[letter]
                 tmp = self.root
         else:
             raise ValueError('String not in tree.')
