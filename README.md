@@ -1,4 +1,4 @@
-# DATA STRUCTURES
+# DATA STRUCTURES [![Build Status](https://travis-ci.org/marco-zangari/data-structures.svg?branch=master)](https://travis-ci.org/marco-zangari/data-structures)
 
 **Author**: Gabriel Meringolo, Marco Zangari
 
