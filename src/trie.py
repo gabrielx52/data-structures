@@ -6,10 +6,10 @@ import pdb
 class Node(object):
     """Create node object."""
 
-    def __init__(self):
+    def __init__(self, parent=None):
         """Node object on initialization."""
         self.children = None
-        self.parent = None
+        self.parent = parent
         self.terminus = False
 
 
