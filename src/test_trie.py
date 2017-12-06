@@ -10,18 +10,18 @@ def test_node_init_object():
     assert isinstance(n, Node)
 
 
-# def test_node_init_children():
-#     """Test initialization object, size."""
-#     from trie import Node
-#     n = Node()
-#     assert n.children is None
+def test_node_init_children():
+    """Test initialization object, size."""
+    from trie import Node
+    n = Node()
+    assert n.children is None
 
 
-# def test_node_init_terminus():
-#     """Test initialization object."""
-#     from trie import Node
-#     n = Node()
-#     assert n.terminus is False
+def test_node_init_terminus():
+    """Test initialization object."""
+    from trie import Node
+    n = Node()
+    assert n.terminus is False
 
 
 # def test_insert_dict():
