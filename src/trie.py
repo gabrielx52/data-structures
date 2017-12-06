@@ -8,7 +8,7 @@ class Node(object):
 
     def __init__(self, parent=None):
         """Node object on initialization."""
-        self.children = None
+        self.children = {}
         self.parent = parent
         self.terminus = False
 
@@ -25,7 +25,7 @@ class Trie(object):
         """Insert input string into trie; ignore, if char already present."""
         current = self.root
         count = 0
-        for letter in range(word):
+        for letter in word:
             if letter not in current.children:
                 new = Node(letter)
                 new.parent = current
@@ -33,6 +33,7 @@ class Trie(object):
                 current = new
                 count += 1
         current.terminus = True
+        count += 1
         self.size += 1
 
     def contains(self, string):
