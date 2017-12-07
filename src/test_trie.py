@@ -13,7 +13,7 @@ def test_node_init_object():
 def test_node_init_children():
     """Test initialization object, children."""
     n = Node()
-    assert n.children is None
+    assert n.children == {}
 
 
 def test_node_init_terminus():
@@ -28,9 +28,15 @@ def test_trie_init_parent():
     assert t.size == 0
 
 
-# def test_insert_dict():
-#     """Test insert a string."""
-#     from trie import Trie, Node
-#     t = Trie()
-#     t.insert('apple')
-#     assert t.count == 5
+def test_insert_dict_key_where_expected():
+    """Test insert holds proper key."""
+    t = Trie()
+    t.insert('apple')
+    assert 'a' in t.root.children
+
+
+def test_insert_dict_value_where_expected():
+    """Test insert returns proper value."""
+    t = Trie()
+    t.insert('apple')
+    assert isinstance(t.root.children['a'].children['p'], Node)
