@@ -10,3 +10,7 @@ def bubble_sort(alist):
                 temp = num_list[i]
                 num_list[i] = num_list[i - 1]
                 num_list[i - 1] = temp
+    return num_list
+
+
+if __name__ == ‘__main__’:
