@@ -3,14 +3,12 @@
 
 def bubble_sort(alist):
     """Implement a bubble sort."""
-    num_list = len(alist)
     while True:
-        for i in range(num_list):
-            if num_list[i - 1] > num_list[i]:
-                temp = num_list[i]
-                num_list[i] = num_list[i - 1]
-                num_list[i - 1] = temp
-    return num_list
+        for i in range(len(alist)):
+            if alist[i - 1] > alist[i]:
+                temp = alist[i]
+                alist[i] = alist[i - 1]
+                alist[i - 1] = temp
+    return alist
 
-
-if __name__ == ‘__main__’:
+# if __name__ == ‘__main__’:
