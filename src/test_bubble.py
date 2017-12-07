@@ -14,4 +14,9 @@ def test_bubble_sort_long_list():
     assert bubble_sort(long_list) == [3, 4, 6, 10, 15, 18, 20, 45, 72, 91]
 
 
-    # tests for decimal & negatives
+def test_bubble_sort_negative_num():
+    """Test bubble sort works with negative numbers."""
+    list_negative_num = [72, 4, -6]
+    assert bubble_sort(list_negative_num) == [-6, 4, 72]
+
+    # tests for decimal &  negatives
