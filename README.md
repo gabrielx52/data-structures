@@ -8,6 +8,17 @@
 ## Overview
 Sample code for classic data structures
 
+## Bubble sort
+
+### Bubble sort a list
+```
+from bubble import bubble_sort
+bubble_sort([5, 4, 3, 2, 1])
+[1, 2, 3, 4, 5]
+```
+
+Big O runtime: O(n2)
+
 ## Trie Tree
 
 ### Create Trie Tree
