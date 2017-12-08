@@ -8,6 +8,17 @@
 ## Overview
 Sample code for classic data structures
 
+## Insertion sort
+
+### Insertion sort a list
+```
+from insert import insert_sort
+insert_sort([5, 4, 3, 2, 1])
+[1, 2, 3, 4, 5]
+```
+
+Big O runtime: O(n2)
+
 ## Bubble sort
 
 ### Bubble sort a list
