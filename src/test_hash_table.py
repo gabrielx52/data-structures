@@ -16,16 +16,16 @@ def empty_bern_hash():
     return HashTable(hash_func='bern')
 
 
-@pytest.fixture
-def full_hash_table():
-    """Full Hash Table fixture."""
-    from hash_table import HashTable
-    ht = HashTable()
-    with open('/usr/share/dict/words', 'r') as words:
-        word_list = words.readlines()
-    for word in word_list:
-        ht.set(word.strip(), word.strip())
-    return ht
+# @pytest.fixture
+# def full_hash_table():
+#     """Full Hash Table fixture."""
+#     from hash_table import HashTable
+#     ht = HashTable()
+#     with open('/usr/share/dict/words', 'r') as words:
+#         word_list = words.readlines()
+#     for word in word_list:
+#         ht.set(word.strip(), word.strip())
+#     return ht
 
 
 def test_raise_value_error_with_bad_hash():
