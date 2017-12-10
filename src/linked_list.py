@@ -74,13 +74,50 @@ class LinkedList(object):
 
     def display(self):
         """Display the linked list value as if a tuple."""
-        display_string = ""
+        display_str = ""
         current_head = self.head
         while current_head:
-            display_string = "'" + current_head.data + "', " + display_string
+            display_str = "'" + str(current_head.data) + "', " + display_str
             current_head = current_head.next
-        return "(" + display_string[:-2] + ")"
+        return "(" + display_str[:-2] + ")"
 
     def __str__(self):
         """Print the display."""
         return self.display()
+
+
+def partition(ll, value):
+    """Partition a linked list on value."""
+    current = ll.head
+    less_vals = []
+    great_vals = []
+    val = []
+    while current:
+        if current.data > value:
+            great_vals.insert(0, current.data)
+        if current.data < value:
+            less_vals.insert(0, current.data)
+        if current.data == value:
+            val.insert(0, value)
+        current = current.next
+    less_vals.extend(val)
+    less_vals.extend(great_vals)
+    return LinkedList(less_vals)
+
+
+def add_two_ll(ll1, ll2):
+    """Add two linked lists and return ll with sum."""
+    list1 = []
+    list2 = []
+    current1 = ll1.head
+    current2 = ll2.head
+    while current1:
+        list1.append(current1.data)
+        current1 = current1.next
+    while current2:
+        list2.append(current2.data)
+        current2 = current2.next
+    list1 = int(''.join([str(i) for i in list1])[::-1])
+    list2 = int(''.join([str(i) for i in list2])[::-1])
+    llsum = list1 + list2
+    return LinkedList(list(str(llsum)))
