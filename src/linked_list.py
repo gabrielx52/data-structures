@@ -77,7 +77,7 @@ class LinkedList(object):
         display_string = ""
         current_head = self.head
         while current_head:
-            display_string = "'" + current_head.data + "', " + display_string
+            display_string = "'" + str(current_head.data) + "', " + display_string
             current_head = current_head.next
         return "(" + display_string[:-2] + ")"
 
