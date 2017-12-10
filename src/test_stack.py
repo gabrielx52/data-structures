@@ -1,4 +1,5 @@
 """Tests for stack module."""
+import pytest
 
 
 def test_stack_type():
@@ -24,3 +25,11 @@ def test_stack_len():
     stck.push('one')
     stck.push('two')
     assert len(stck) == 2
+
+
+def test_pop_from_empty_stack_raises_error():
+    """Test IndexError raised when pop from empty stack."""
+    from stack import Stack
+    stck = Stack()
+    with pytest.raises(IndexError):
+        stck.pop()

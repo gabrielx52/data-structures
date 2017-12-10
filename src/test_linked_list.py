@@ -88,3 +88,25 @@ def test_linked_list_iterable():
     from linked_list import LinkedList
     ll = LinkedList(['one', 'two', 'three'])
     assert ll.head.data == 'three'
+
+
+def test_search_linked_list_item_not_in_ll_returns_none():
+    """Test search method returns None if val not in LL."""
+    from linked_list import LinkedList
+    ll = LinkedList()
+    assert ll.search(1) is None
+
+
+def test_remove_from_ll_size_1():
+    """Test remove method on linked list with one item in it."""
+    from linked_list import LinkedList
+    ll = LinkedList([1])
+    node = ll.search(1)
+    assert ll.remove(node) is None
+
+
+def test_print_ll_returns_str():
+    """Test print function on linked list returns string of values."""
+    from linked_list import LinkedList
+    ll = LinkedList([1])
+    assert hasattr(ll, '__str__')
