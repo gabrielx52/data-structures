@@ -8,6 +8,28 @@
 ## Overview
 Sample code for classic data structures
 
+## Quick sort
+
+### Quick sort a list
+```
+from quick import quick_sort
+quick_sort([5, 4, 3, 2, 1])
+[1, 2, 3, 4, 5]
+```
+
+Big O runtime: O(n log n)
+
+## Merge sort
+
+### Merge sort a list
+```
+from merge import merge_sort
+merge_sort([5, 4, 3, 2, 1])
+[1, 2, 3, 4, 5]
+```
+
+Big O runtime: O(n log n)
+
 ## Insertion sort
 
 ### Insertion sort a list
