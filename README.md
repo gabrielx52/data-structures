@@ -8,6 +8,17 @@
 ## Overview
 Sample code for classic data structures
 
+## Radix sort
+
+### Radix sort a list
+```
+from radix import radix_sort
+radix_sort([5, 4, 3, 2, 1])
+[1, 2, 3, 4, 5]
+```
+
+Big O runtime: O(wn)
+
 ## Quick sort
 
 ### Quick sort a list
