@@ -60,7 +60,7 @@ def test_get_returns_val():
 
 def test_djb_hash_loads_to_hashtable():
     """Test the djb hash function."""
-    from hash_table import HashTable, djb_hash
-    h = HashTable(11, djb_hash)
+    from hash_table import HashTable
+    h = HashTable(11, 'djb_hash')
     h.set('jackie', 'robinson')
     assert h.get('jackie') == 'robinson'
