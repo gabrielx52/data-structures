@@ -87,11 +87,7 @@ class BST(object):
 
     def _contains_(self, val):
         """Return whether node or not."""
-        try:
-            self.search(val)
-        except KeyError:
-            return False
-        return True
+        return bool(self.search(val))
 
     def balance(self):
         """Balance node returns int, positive or negative."""
