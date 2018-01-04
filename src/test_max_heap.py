@@ -76,6 +76,7 @@ def test_parent_for_item_in_heap():
 def test_pop_method(full_heap):
     """Test pop method."""
     assert full_heap.pop() == 99
+    assert full_heap.pop() == 37
 
 
 def test_sort_after_pop(full_heap):
