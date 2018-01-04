@@ -8,6 +8,127 @@
 ## Overview
 Sample code for classic data structures
 
+## Radix sort
+
+### Radix sort a list
+```
+from radix import radix_sort
+radix_sort([5, 4, 3, 2, 1])
+[1, 2, 3, 4, 5]
+```
+
+Big O runtime: O(wn)
+
+## Quick sort
+
+### Quick sort a list
+```
+from quick import quick_sort
+quick_sort([5, 4, 3, 2, 1])
+[1, 2, 3, 4, 5]
+```
+
+Big O runtime: O(n log n)
+
+## Merge sort
+
+### Merge sort a list
+```
+from merge import merge_sort
+merge_sort([5, 4, 3, 2, 1])
+[1, 2, 3, 4, 5]
+```
+
+Big O runtime: O(n log n)
+
+## Insertion sort
+
+### Insertion sort a list
+```
+from insert import insert_sort
+insert_sort([5, 4, 3, 2, 1])
+[1, 2, 3, 4, 5]
+```
+
+Big O runtime: O(n2)
+
+## Bubble sort
+
+### Bubble sort a list
+```
+from bubble import bubble_sort
+bubble_sort([5, 4, 3, 2, 1])
+[1, 2, 3, 4, 5]
+```
+
+Big O runtime: O(n2)
+
+## Trie Tree
+
+### Create Trie Tree
+```
+from trie import TrieTree
+tt = TrieTree()
+```
+
+Big O runtime: O(1)
+
+### Insert into Trie Tree
+```
+tt.insert('Guido')
+```
+
+Big O runtime: O(m)
+
+### Check for inclusion in Trie Tree
+```
+tt.contains('Guido')
+True
+```
+
+Big O runtime: O(m)
+
+### Size of Trie Tree
+```
+tt.size()
+1
+```
+
+Big O runtime: O(1)
+
+### Remove from Trie Tree
+```
+tt.remove('Guido')
+```
+
+Big O runtime: O(m!)
+
+## Hash Table
+
+### Create Hash Table
+```
+from hash_table import HashTable
+ht = HashTable()
+```
+
+Big O runtime: O(1)
+
+### Insert item in Hash Table
+```
+ht.set('Guido', 12)
+```
+
+Big O runtime: O(1)
+
+### Get item in Hash Table
+```
+ht.get('Guido')
+12
+```
+
+Big O runtime: O(1)
+
+
 ## Binary Search Tree
 
 ### Create BST
@@ -64,6 +185,54 @@ tree.balance()
 ```
 
 Big O runtime: O(1)
+
+### In-order traversal generator
+```
+tree = BST([10, 12, 16, 6, 8, 4, 14, 2])
+gen = tree.in_order()
+[_ for _ in gen]
+[2, 4, 6, 8, 10, 12, 14, 16]
+```
+
+Big O runtime: O(n)
+
+### Pre-order traversal generator
+```
+tree = BST([10, 12, 16, 6, 8, 4, 14, 2])
+gen = tree.pre_order()
+[_ for _ in gen]
+[2, 4, 6, 8, 10, 12, 14, 16]
+```
+
+Big O runtime: O(n)
+
+### Post-order traversal generator
+```
+tree = BST([10, 12, 16, 6, 8, 4, 14, 2])
+gen = tree.post_order()
+[_ for _ in gen]
+[2, 4, 8, 6, 14, 16, 12, 10]
+```
+
+Big O runtime: O(n)
+
+### Breadth-first traversal generator
+```
+tree = BST([10, 12, 16, 6, 8, 4, 14, 2])
+gen = tree.breadth_first()
+[_ for _ in gen]
+[10, 6, 12, 4, 8, 16, 2, 14]
+```
+
+Big O runtime: O(n)
+
+### Delete node from BST
+```
+tree = BST([10, 12, 16, 6, 8, 4, 14, 2])
+tree.delete(2)
+```
+
+Big O runtime: O(logn)
 
 ## Graph
 

@@ -4,11 +4,12 @@
 class Node(object):
     """BST Node object class."""
 
-    def __init__(self, val):
+    def __init__(self, val, parent=None):
         """Constructor method for BST Node."""
         self.val = val
         self.left = None
         self.right = None
+        self.parent = parent
 
 
 class BST(object):
@@ -46,7 +47,7 @@ class BST(object):
                     if current.right:
                         current = current.right
                     else:
-                        current.right = Node(val)
+                        current.right = Node(val, current)
                         self._size += 1
                         self.depth_checker(deep)
                         return
@@ -55,7 +56,7 @@ class BST(object):
                     if current.left:
                         current = current.left
                     else:
-                        current.left = Node(val)
+                        current.left = Node(val, current)
                         self._size += 1
                         self.depth_checker(deep)
                         return
@@ -106,6 +107,104 @@ class BST(object):
     def balance(self):
         """Return True/False if BST is balanced."""
         return self._balance
+
+    def in_order(self):
+        """Return in-order traversal generator."""
+        stack = []
+        current = self._root
+        while current or stack:
+            if current:
+                stack.append(current)
+                current = current.left
+            else:
+                current = stack.pop()
+                yield current.val
+                current = current.right
+
+    def pre_order(self):
+        """Return pre-order traversal generator."""
+        stack = [self._root]
+        current = None
+        while current or stack:
+            if not current:
+                current = stack.pop()
+            else:
+                yield current.val
+                stack.extend([current.right, current.left])
+                current = stack.pop()
+
+    def post_order(self):
+        """Return post-order traversal generator."""
+        stack = []
+        current = self._root
+        while current or stack:
+            if current:
+                if current.right:
+                    stack.append(current.right)
+                stack.append(current)
+                current = current.left
+            else:
+                current = stack.pop()
+                if stack and current.right == stack[-1]:
+                    stack.pop()
+                    stack.append(current)
+                    current = current.right
+                else:
+                    yield current.val
+                    current = None
+
+    def breadth_first(self):
+        """Return breadth-first traversal generator."""
+        stack = []
+        current = self._root
+        while current or stack:
+            if current:
+                yield current.val
+                stack.extend([current.left, current.right])
+                current = stack.pop(0)
+            else:
+                current = stack.pop(0)
+
+    def delete(self, val):
+        """Delete node containing val from the BST."""
+        current, parent = self._root, None
+        while current and current.val != val:
+            parent = current
+            if val > current.val:
+                current = current.right
+            else:
+                current = current.left
+        if current is None:
+            return
+        tmp = None
+        if current.left and current.right:
+            tmp = self._remove(current)
+            tmp.left = current.left
+            tmp.right = current.right
+        elif current.left is None:
+            tmp = current.right
+        else:
+            tmp = current.left
+
+        if current == self._root:
+            self._root = tmp
+        elif parent.left == current:
+            parent.left = tmp
+        else:
+            parent.right = tmp
+        return
+
+    def _remove(self, node):
+        """Remove child node."""
+        current, parent = node.right, node
+        while current.left:
+            parent = current
+            current = current.left
+        if current == parent.right:
+            parent.right = current.right
+        else:
+            parent.left = current.right
+        return current
 
 
 if __name__ == '__main__':  # pragma: no cover

@@ -77,10 +77,24 @@ class LinkedList(object):
         display_string = ""
         current_head = self.head
         while current_head:
-            display_string = "'" + current_head.data + "', " + display_string
+            display_string = "'" + str(current_head.data) + "', " + display_string
             current_head = current_head.next
         return "(" + display_string[:-2] + ")"
 
     def __str__(self):
         """Print the display."""
         return self.display()
+
+
+def ll_pal(ll):
+    """."""
+    hold = []
+    curr = ll.head
+    while curr:
+        hold.append(curr.data)
+        curr = curr.next
+    mid = len(ll) // 2
+    left, right = hold[:mid], hold[mid:]
+    if len(right) > len(left):
+        right = right[1:]
+    return left == right[::-1]
