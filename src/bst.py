@@ -1,4 +1,4 @@
-"""Implement binary search tree methods for data structures.
+"""Implement binary search tree methods for data structures work.
 
 Hat tip: http://www.laurentluce.com/posts/binary-search-tree-library-in-python/
 AND: Magnus Lie Hetlund Algorithms: Mastering Basic Algorithms in the Python/
