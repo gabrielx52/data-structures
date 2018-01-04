@@ -92,10 +92,6 @@ class BST(object):
         except AttributeError:
             return
 
-        # def _search_helper(self, direction=):
-        #     """."""
-        #     pass
-
     def size(self):
         """Return size of BST."""
         return self._size
@@ -196,7 +192,6 @@ class BST(object):
             parent.left = tmp
         else:
             parent.right = tmp
-
         return
 
     def _remove(self, node):
@@ -210,37 +205,6 @@ class BST(object):
         else:
             parent.left = current.right
         return current
-
-    def delete_2(self, val):
-        """Delete method for BST."""
-        target = self.search(val)
-        if target:
-            if target.right and target.left:
-                self._parent_remover_twins(target)
-            elif target.right:
-                self._parent_remover(target, target.right)
-            elif target.left:
-                self._parent_remover(target, target.left)
-            else:
-                self._parent_remover(target)
-                target.parent = None
-        else:
-            return
-
-    def _parent_remover(self, target, child=None):
-        """Remove node with one or no children."""
-        if target.val < target.parent.val:
-            target.parent.left = child
-            if child:
-                child.parent = target.parent.left
-        else:
-            target.parent.right = child
-            if child:
-                child.parent = target.parent.left
-
-    def _parent_remover_twins(self, target):
-        """Remove node with two children."""
-        pass
 
 
 if __name__ == '__main__':  # pragma: no cover
